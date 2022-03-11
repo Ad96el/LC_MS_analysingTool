@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "/home/adel/.anaconda/envs/server/bin/python",
+    "files.exclude": {
+        "**/__pycache__": true,
+    },
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "120",
+        "--experimental"
+    ],
+    "editor.formatOnSave": true,
+    "python.testing.pytestEnabled": true
+}

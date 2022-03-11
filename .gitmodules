@@ -1,0 +1,15 @@
+[submodule "frontend"]
+	path = frontend
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/frontend/frontend
+[submodule "email_server"]
+	path = email_server
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/email_server/email_server
+[submodule "proxy"]
+	path = proxy
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/reverse_proxy/reverse_proxy
+[submodule "Small_services"]
+	path = Small_services
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/Small_services/Small_services
+[submodule "backend"]
+	path = backend
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/Intact%20Mass%20Analysis/Intact%20Mass%20Analysis

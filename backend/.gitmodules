@@ -1,0 +1,12 @@
+[submodule "intact_server"]
+	path = intact_server
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/intact_server/intact_server
+[submodule "rawReader"]
+	path = rawReader
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/rawReader/rawReader
+[submodule "mMass"]
+	path = mMass
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/mMass/mMass
+[submodule "UniDec"]
+	path = UniDec
+	url = git@ssh.dev.azure.com:v3/AD-Informatics/unidec_light/unidec_light
