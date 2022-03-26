@@ -47,6 +47,17 @@ const provider = {
       return Promise.reject(error);
     }
   },
+  createPdf: async (id: string) : Promise<any> => {
+    try {
+      const response = await axs.get(`/result/pdf/${id}`);
+      if (response.status === 200) {
+        return Promise.resolve(response.data);
+      }
+      return Promise.reject(response.data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 };
 
 export default provider;

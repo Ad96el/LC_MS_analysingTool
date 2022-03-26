@@ -2,8 +2,34 @@ import * as React from 'react';
 import {
   List, Datagrid, TextField, ListProps, DeleteButton, DateInput, DateField, AutocompleteInput,
   useTranslate, FunctionField, TextInput, Filter, ReferenceField, ShowButton, ReferenceInput,
+  HttpError, useNotify,
 } from 'react-admin';
+import { Button } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+
+import dataProvider from 'dataProvider';
+
+const CreateButton : React.FC<any> = ({ record }) => {
+  const { id } = record;
+  const notify = useNotify();
+
+  const handleClick = async () => {
+    try {
+      await dataProvider.createPdf(id);
+    } catch (e) {
+      notify(`Error:${(e as HttpError).message}`, 'warning');
+    }
+  };
+
+  return (
+    <div>
+      <Button variant="outlined" color="primary" onClick={handleClick}>
+        <PictureAsPdfIcon />
+      </Button>
+    </div>
+  );
+};
 
 const ResultList : React.FC<ListProps> = ({ permissions, ...props }) => {
   const translate = useTranslate();
@@ -51,6 +77,7 @@ const ResultList : React.FC<ListProps> = ({ permissions, ...props }) => {
 
         <ShowButton />
         {permissions > 1 && <DeleteButton undoable={false} />}
+        {permissions > 1 && <CreateButton />}
       </Datagrid>
     </List>
   );
