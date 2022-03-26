@@ -13,7 +13,8 @@ from app.main.service.results import (
     create_result,
     delete_result,
     edit_result,
-    get_result_by_vid
+    get_result_by_vid,
+    createResultPdf,
 )
 from app.main.util.dto import result, result_update_create, version, result_preview
 
@@ -87,4 +88,12 @@ class Result_Version(Resource):
     @app.marshal_list_with(version)
     def get(self, id):
         out = get_result_by_vid(id)
+        return marshal(out, version)
+
+
+@app.route('/pdf/<id>')
+class PdfCreation(Resource):
+    @app.doc(description="Generates a pdf from the passed id")
+    def get(self, id):
+        out = createResultPdf(id)
         return marshal(out, version)

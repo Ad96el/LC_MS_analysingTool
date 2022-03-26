@@ -10,11 +10,11 @@ from app.main.service.sample import get_deconvolution_data, get_sample
 from app.main.service.user import get_user
 from app.main.util import messages
 from app.main.util.utils import checkVersion, check_permissions, create_uuid4, dataBaseDelete, dataBaseSave, dataBaseUpdate, pagination, updateVersion, validate_uuid4
-
+from app.main.util.pdf import PDF
 
 def get_result(rid: str) -> Results:
     """
-    get one specific result
+    get one specific result by their id
     """
     validate_uuid4(rid)
     result = Results.query.filter_by(id=rid).first()
@@ -175,3 +175,25 @@ def delete_result(id: str, uid: str) -> Results:
         toDelete = get_result(res["id"])
         dataBaseDelete(toDelete)
     return out
+
+
+def createResultPdf(id: str): 
+    result = get_result(id)
+    out = result.as_dict()
+    peaks = json.loads(out["peaks"])
+    tics = json.loads(out["tics"])
+    deconData = json.loads(out["deconData"])
+    pdfCreator = PDF()
+    pdfCreator.createLayout()
+    data = {
+        "name" : out["name"].split(".")[0],
+        "created": out["created"].strftime("%d.%m.%y"),
+        "version": str(out["version"]),
+        "creator": out["user"]["email"] 
+        }
+    pdfCreator.addHeader(data)
+    pdfCreator.addLC(tics, peaks)
+    for msPeak in deconData:
+        pdfCreator.addMS(tics, peaks, index)
+    pdfCreator.save(str(out["id"]))
+ 
