@@ -3,6 +3,7 @@ from http import HTTPStatus
 from typing import Dict, List
 from flask import abort
 import json
+import os
 # own libs
 from app.main.model import Results, db
 from app.main.service.method_set import get_methodset
@@ -11,6 +12,7 @@ from app.main.service.user import get_user
 from app.main.util import messages
 from app.main.util.utils import checkVersion, check_permissions, create_uuid4, dataBaseDelete, dataBaseSave, dataBaseUpdate, pagination, updateVersion, validate_uuid4
 from app.main.util.pdf import PDF
+
 
 def get_result(rid: str) -> Results:
     """
@@ -177,7 +179,7 @@ def delete_result(id: str, uid: str) -> Results:
     return out
 
 
-def createResultPdf(id: str): 
+def createResultPdf(id: str):
     result = get_result(id)
     out = result.as_dict()
     peaks = json.loads(out["peaks"])
@@ -186,14 +188,16 @@ def createResultPdf(id: str):
     pdfCreator = PDF()
     pdfCreator.createLayout()
     data = {
-        "name" : out["name"].split(".")[0],
+        "name": out["name"].split(".")[0],
         "created": out["created"].strftime("%d.%m.%y"),
         "version": str(out["version"]),
-        "creator": out["user"]["email"] 
-        }
+        "creator": out["user"]["email"]
+    }
     pdfCreator.addHeader(data)
     pdfCreator.addLC(tics, peaks)
-    for msPeak in deconData:
-        pdfCreator.addMS(tics, peaks, index)
+    for index, msPeak in enumerate(deconData):
+        if(index > 5):
+            break
+        pdfCreator.addMS(msPeak["raw"], msPeak["decon"], msPeak["peaks"], index)
     pdfCreator.save(str(out["id"]))
- 
+    return id + ".pdf"

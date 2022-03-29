@@ -3,8 +3,8 @@ imflag 0
 input input.dat
 output 
 numit 100
-numz 91
-endz 100
+numz 92
+endz 101
 startz 10
 zzsig 2
 psig 1
