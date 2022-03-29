@@ -49,7 +49,7 @@ const provider = {
   },
   createPdf: async (id: string) : Promise<any> => {
     try {
-      const response = await axs.get(`/result/pdf/${id}`);
+      const response = await axs.get(`/result/pdfview/${id}`);
       if (response.status === 200) {
         return Promise.resolve(response.data);
       }

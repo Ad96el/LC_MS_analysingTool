@@ -7,21 +7,47 @@ import {
 import { Button } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
+// own libs
 import dataProvider from 'dataProvider';
+
+function base64ToArrayBuffer(data) {
+  const binaryString = window.atob(data);
+  const binaryLen = binaryString.length;
+  const bytes = new Uint8Array(binaryLen);
+  for (let i = 0; i < binaryLen; i += 1) {
+    const ascii = binaryString.charCodeAt(i);
+    bytes[i] = ascii;
+  }
+  return bytes;
+}
 
 const CreateButton : React.FC<any> = ({ record }) => {
   const { id } = record;
   const notify = useNotify();
+  const [loading, setLoading] = React.useState(false);
 
   const handleClick = async () => {
+    setLoading(true);
     try {
-      await dataProvider.createPdf(id);
+      const data = await dataProvider.createPdf(id);
+      const file = new Blob([base64ToArrayBuffer(data.pdfb64)], { type: 'application/pdf' });
+      const fileUrl = URL.createObjectURL(file);
+      window.open(fileUrl);
     } catch (e) {
       notify(`Error:${(e as HttpError).message}`, 'warning');
     }
+    setLoading(false);
   };
 
+  if (loading) {
+    return (
+      <div>
+        <CircularProgress />
+      </div>
+    );
+  }
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClick}>
