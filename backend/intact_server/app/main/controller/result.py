@@ -1,6 +1,6 @@
 # libs
 from app.main.util.utils import generate_header
-from flask import request
+from flask import request, send_from_directory
 import json
 from flask_jwt_extended.utils import get_jwt_identity
 from flask_jwt_extended import jwt_required
@@ -91,9 +91,9 @@ class Result_Version(Resource):
         return marshal(out, version)
 
 
-@app.route('/pdf/<id>')
+@app.route('/pdfview/<id>')
 class PdfCreation(Resource):
     @app.doc(description="Generates a pdf from the passed id")
     def get(self, id):
-        out = createResultPdf(id)
-        return marshal(out, version)
+        encodedString = createResultPdf(id)
+        return {"pdfb64": encodedString.decode("UTF-8")}

@@ -4,6 +4,7 @@ from typing import Dict, List
 from flask import abort
 import json
 import os
+import base64
 # own libs
 from app.main.model import Results, db
 from app.main.service.method_set import get_methodset
@@ -180,6 +181,10 @@ def delete_result(id: str, uid: str) -> Results:
 
 
 def createResultPdf(id: str):
+    if(os.path.exists(os.getcwd()+"/static/pdf/" + id + ".pdf")):
+        with open(os.getcwd()+"/static/pdf/" + id + ".pdf", "rb") as pdfFile:
+            encodedString = base64.b64encode(pdfFile.read())
+        return encodedString
     result = get_result(id)
     out = result.as_dict()
     peaks = json.loads(out["peaks"])
@@ -200,4 +205,6 @@ def createResultPdf(id: str):
             break
         pdfCreator.addMS(msPeak["raw"], msPeak["decon"], msPeak["peaks"], index)
     pdfCreator.save(str(out["id"]))
-    return id + ".pdf"
+    with open(os.getcwd()+"/static/pdf/" + id + ".pdf", "rb") as pdfFile:
+        encodedString = base64.b64encode(pdfFile.read())
+    return encodedString

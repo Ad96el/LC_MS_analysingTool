@@ -41,7 +41,7 @@ class PDF (FPDF):
         self.set_xy(0, 35)
         self.set_font("Times", "B", 16)
         self.cell(w=210, h=30, align="C", txt="Liquid Chromatogramm", border=0)
-        fig = self.createImage(tics)
+        fig = self.createImage(tics, kind="lc")
         self.set_xy(20, 55.0)
         self.image(fig,  link='', type='', w=700/4, h=450/4)
         self.set_xy(0, 150)
@@ -81,10 +81,10 @@ class PDF (FPDF):
         self.set_font("Times", "B", 16)
         self.cell(w=210, h=30, align="C", txt="MS and Deconvoluted MS", border=0)
         self.set_xy(20, 40.0)
-        fig1 = self.createImage(ms)
+        fig1 = self.createImage(ms, kind="")
         self.image(fig1,  link='', type='', w=700/4, h=450/6)
         self.set_xy(20, 110)
-        fig2 = self.createImage(deconMs)
+        fig2 = self.createImage(deconMs, kind="msDecon")
         self.image(fig2,  link='', type='', w=700/4, h=450/6)
         self.set_xy(0, 170)
         self.set_font("Times", "B", 16)
@@ -127,9 +127,10 @@ class PDF (FPDF):
         for count in range(self.imageCount):
             os.remove(os.getcwd()+'/static/' + str(count) + 'tmp.png')
 
-    def createImage(self, data):
+    def createImage(self, data, kind="lc"):
+        xLabel = "Retention Time in Min." if kind is "lc" else "Mass in Dalton" if kind is "msDecon" else "M/Z in Dalton"
         df = pd.DataFrame.from_records(data)
-        fig = px.line(df, x="x", y="y",  labels=dict(x="Retention Time", y="Intensity"))
+        fig = px.line(df, x="x", y="y",  labels=dict(x=xLabel, y="Intensity in %"))
         plotly.io.write_image(fig, file='static/' + str(self.imageCount) + 'tmp.png',
                               format='png', width=700, height=450)
         fig = (os.getcwd()+'/static/' + str(self.imageCount) + "tmp.png")
