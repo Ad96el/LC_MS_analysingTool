@@ -1,6 +1,6 @@
 from .request import (methodSet_create_update, credentials, project_update_create,
                       sample_update_create, method_create_update, sampleSet_create_update,
-                      method as method_request,  result_update_create,
+                      method as method_request,  result_update_create, result_combine,
                       result_set_update_create, modification_create_update, modification_set_create_update)
 
 from .response import (user, method, tokens, project, sample, method_set, sample_set, user, version, preview,
@@ -35,4 +35,5 @@ def register_models(app):
     app.models[protein_validate.name] = protein_validate
     app.models[preview.name] = preview
     app.models[result_preview.name] = result_preview
+    app.models[result_combine.name] = result_combine
     return app

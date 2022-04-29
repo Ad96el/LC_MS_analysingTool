@@ -70,5 +70,12 @@ modification_create_update = Model("update or create modification", {
 modification_set_create_update = Model("update or create modification set", {
     'name': fields.String(required=True),
     'modifications': fields.List(fields.String()),
+})
+
+result_combine = Model("Combine four analyzes", {
+    'id_N': fields.String(required=True),
+    'id_R': fields.String(required=True),
+    'id_D': fields.String(required=True),
+    'id_DR': fields.String(required=True),
 
 })

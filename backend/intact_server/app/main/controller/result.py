@@ -15,8 +15,9 @@ from app.main.service.results import (
     edit_result,
     get_result_by_vid,
     createResultPdf,
+    analyze_result_together
 )
-from app.main.util.dto import result, result_update_create, version, result_preview
+from app.main.util.dto import result, result_update_create, version, result_preview, result_combine
 
 app = Namespace("results", description="Controller for results")
 
@@ -71,13 +72,13 @@ class Result(Resource):
     @app.doc(description="get all result")
     @app.marshal_list_with(result)
     def get(self):
-        filter = request.args.get("filter")
-        range = request.args.get("range")
+        filter_value = request.args.get("filter")
+        range_value = request.args.get("range")
         sort = request.args.get("sort")
-        filter = json.loads(filter) if filter else {"head": True}
-        range = json.loads(range) if range else [0, 250]
+        filter_value = json.loads(filter_value) if filter_value else {"head": True}
+        range_value = json.loads(range_value) if range_value else [0, 250]
         sort = json.loads(sort) if sort else ["id", "asc"]
-        out, rows = get_result_list(filter, sort, range)
+        out, rows = get_result_list(filter_value, sort, range_value)
         header = generate_header(rows)
         return marshal(out, result_preview), 200, header
 
@@ -97,3 +98,13 @@ class PdfCreation(Resource):
     def get(self, id):
         encodedString = createResultPdf(id)
         return {"pdfb64": encodedString.decode("UTF-8")}
+
+
+@app.route('/analyze')
+@app.expect(result_combine, validate=True)
+class Result_combine(Resource):
+    @app.doc(description="combine the four different analyzses")
+    def post(self):
+        ids = request.get_json()
+        out = analyze_result_together(ids)
+        return out

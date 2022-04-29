@@ -1641,7 +1641,7 @@ def unidec_call(config, silent=False, **kwargs):
     """
 
     call = [config.UniDecPath, str(config.confname)]
-
+    print("here in unidec",call)
     if config.autotune:
         call.append("-autotune")
 

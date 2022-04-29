@@ -257,11 +257,14 @@ const customEnglishMessages: TranslationMessages = {
         user: 'Created by',
       },
       resultset: {
+        merge: 'merge',
         name: 'Result Sets',
         created: 'Created',
         user: 'Created By',
         version: 'Version',
         sampleset: 'Corresponding Sample Set',
+        submit: 'Submit',
+        possibleResults: 'Possible Results',
       },
       dashboard: {
         users: 'Users',

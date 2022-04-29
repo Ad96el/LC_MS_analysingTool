@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import {
   DataGrid, GridColDef, GridRowParams,
 } from '@material-ui/data-grid';
@@ -8,6 +8,7 @@ import {
   useTranslate, FunctionField, TextInput, Filter, ReferenceField, DateInput, ShowButton,
   Record, GetManyParams,
 } from 'react-admin';
+import MergeTypeIcon from '@material-ui/icons/MergeType';
 import { useHistory } from 'react-router';
 import { GridToolbar } from 'components';
 
@@ -24,6 +25,22 @@ const useStyles = makeStyles({
   },
 
 });
+
+const CombineButton = (props) => {
+  const history = useHistory();
+  const translate = useTranslate();
+  const onPress = () => {
+    const { id } = props.record;
+    history.push(`resultset/combine/${id}`);
+  };
+
+  return (
+    <Button color="primary" onClick={onPress}>
+      <MergeTypeIcon />
+      {translate('resources.routes.resultset.merge')}
+    </Button>
+  );
+};
 
 const ResultsExpand = (props) => {
   const dataProvider = useDataProvider();
@@ -115,6 +132,7 @@ const ResultList : React.FC<ListProps> = ({ permissions, ...props }) => {
         <ReferenceField label={translate('resources.routes.resultset.sampleset')} reference="sampleset" source="sid" link="show">
           <TextField source="name" />
         </ReferenceField>
+        <CombineButton />
         <ShowButton />
         {permissions > 1 && <DeleteButton undoable={false} />}
       </Datagrid>

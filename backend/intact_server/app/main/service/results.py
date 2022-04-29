@@ -5,6 +5,7 @@ from flask import abort
 import json
 import os
 import base64
+from scipy.signal import find_peaks
 # own libs
 from app.main.model import Results, db
 from app.main.service.method_set import get_methodset
@@ -70,8 +71,8 @@ def create_result(peaks: dict, tics: dict, uid: str,  sid: str, single=False) ->
     creates a new rseult. There are 4 cases. 
     1. the sample has already a result -> update it 
     2. there is already a reusult set but the sample has no result -> create a new result
-    3. we want to create the result set later -> first create a result 
-    4. there is no result set and no result -> create booth 
+    3. we want to create the result set later -> first create a result
+    4. there is no result set and no result -> create booth
     """
 
     user = get_user(uid)
@@ -208,3 +209,112 @@ def createResultPdf(id: str):
     with open(os.getcwd()+"/static/pdf/" + id + ".pdf", "rb") as pdfFile:
         encodedString = base64.b64encode(pdfFile.read())
     return encodedString
+
+
+def identify_species(data: dict):
+    decon_data = json.loads(data["deconData"])
+    first_peak, second_peak = decon_data[0], decon_data[1]
+    if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
+        return {}
+
+    if (first_peak["peaks"][0]["peakMass"] > second_peak["peaks"][0]["peakMass"]):
+        heavy_chain = first_peak
+        light_chain = second_peak
+    else:
+        heavy_chain = second_peak
+        light_chain = first_peak
+
+    heavy_chain_intensity = [x["y"] for x in heavy_chain["decon"]]
+    light_chain_intensity = [x["y"] for x in light_chain["decon"]]
+    heavy_chain_species, _ = find_peaks(heavy_chain_intensity, height=2.0)
+    light_chain_species, _ = find_peaks(light_chain_intensity, height=2.0)
+
+    heavy_main_peak = {"x": heavy_chain["peaks"][0]["peakMass"], "y": 100}
+    light_main_peak = {"x": light_chain["peaks"][0]["peakMass"], "y": 100}
+    aligned_heavy_chain_species = []
+    aligned_light_chain_species = []
+
+    for specie in heavy_chain_species:
+        point = heavy_chain["decon"][specie]
+        if (abs(point["x"] - heavy_main_peak["x"]) > 1000):
+            continue
+        aligned_heavy_chain_species.append(heavy_chain["decon"][specie])
+
+    for specie in light_chain_species:
+        point = light_chain["decon"][specie]
+        if (abs(point["x"] - light_main_peak["x"]) > 1000):
+            continue
+        aligned_light_chain_species.append(light_chain["decon"][specie])
+
+    return {"heavyChainSpecies": aligned_heavy_chain_species, "lightChainSpecies": aligned_light_chain_species}
+
+
+def identify_sugars(species, signal):
+    decon_data = json.loads(signal["deconData"])
+    heavy_chain = decon_data[0] if len(decon_data[0]["peaks"]) > 1 else decon_data[1]
+    raw_signal = [z["y"] for z in heavy_chain["decon"]]
+    sugar_peaks, _ = find_peaks(raw_signal, height=0.5)
+    sugar_weights = []
+    for peak in sugar_peaks:
+        sugar_weights.append(heavy_chain["decon"][peak])
+
+    distance = {}
+    for specie in species:
+        distance[str(specie["x"])] = []
+        for sugar in sugar_weights:
+            distance[str(specie["x"])].append(abs(sugar["x"] - specie["x"]))
+
+    with open(os.getcwd()+"/static/json/glycan.json", "rb") as json_glycan:
+        glycan_data = json.load(json_glycan)
+
+    sugar_candidates = []
+    for specie in distance.keys():
+        for distance_value in distance[specie]:
+            for glycan in glycan_data:
+                if (glycan["mass"] == distance_value):
+                    sugar_candidates.append(glycan)
+    return sugar_candidates
+
+
+def get_modification_candidates(specie):
+    decon_data = json.loads(specie["deconData"])
+    first_peak, second_peak = decon_data[0], decon_data[1]
+    if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
+        return
+    if (first_peak["peaks"][0]["peakMass"] > second_peak["peaks"][0]["peakMass"]):
+        heavy_chain = first_peak["peaks"][0]
+        light_chain = second_peak["peaks"][0]
+    else:
+        heavy_chain = second_peak["peaks"][0]
+        light_chain = first_peak["peaks"][0]
+
+    light_chain_mod = []
+    heavy_chain_mod = []
+
+    with open(os.getcwd()+"/static/json/mod.json", "rb") as json_mod:
+        mod_data = json.load(json_mod)
+    for mod in mod_data:
+        if(mod["mass"] == light_chain["error"]):
+            light_chain_mod.append(mod)
+        if(mod["mass"] == heavy_chain["error"]):
+            heavy_chain_mod.append(mod)
+    return {"heavyChainMod": heavy_chain_mod, "lightChainMod": light_chain_mod}
+
+
+def identify_modification(specie_dr, specie_d):
+    candidates = get_modification_candidates(specie_dr)
+    return candidates
+
+
+def analyze_result_together(ids: dict):
+    r_result = get_result(ids["R"])
+    # n_result = get_result(ids["N"])
+    #d_result = get_result(ids["D"])
+    dr_result = get_result(ids["DR"])
+    print(dr_result.as_dict())
+    species = identify_species(dr_result.as_dict())
+
+    print(species)
+    sugar_candidates = identify_sugars(species["heavyChainSpecies"], r_result.as_dict())
+    mod_candidates = identify_modification(dr_result.as_dict(), None)  # d_result.as_dict())
+    return {"species": species, "sugar": sugar_candidates, "mod": mod_candidates}

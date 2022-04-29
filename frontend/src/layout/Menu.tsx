@@ -31,7 +31,7 @@ import ModificationSet from 'routes/massCalculation/modificationSet';
 // other apps
 import Users from 'routes/userManagement';
 import * as Types from 'types';
-import Ambr from 'routes/ambr';
+// import Ambr from 'routes/ambr';
 import { FunctionsIcon } from 'routes/massCalculation/calculator';
 import SubMenu from './SubMenu';
 
@@ -84,7 +84,7 @@ const Menu: React.FC<MenuProps> = ({ dense = false }) => {
   const ResultSetIcon = ResultSet.icon;
   const ModificationIcon = Modification.icon;
   const ModificationSetIcon = ModificationSet.icon;
-  const { IconFile } = Ambr;
+  // const { IconFile } = Ambr;
 
   const { intactMass, massCalculator } = state;
   return (
@@ -109,13 +109,13 @@ const Menu: React.FC<MenuProps> = ({ dense = false }) => {
             dense={dense}
           />
         ) : <div /> }
-        <MenuItemLink
+        {/* <MenuItemLink
           to="/ambr"
           primaryText={translate('resources.routes.ambr.name')}
           leftIcon={<IconFile />}
           sidebarIsOpen={open}
           dense={dense}
-        />
+        /> */}
 
         <SubMenu
           handleToggle={() => handleToggle('massCalculator')}

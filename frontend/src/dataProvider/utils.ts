@@ -58,6 +58,19 @@ const provider = {
       return Promise.reject(error);
     }
   },
+
+  combine: async (ids : any) : Promise<any> => {
+    try {
+      const response = await axs.post('/result/analyze', ids);
+      if (response.status === 200) {
+        return Promise.resolve(response.data);
+      }
+      return Promise.reject(response.data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+
 };
 
 export default provider;

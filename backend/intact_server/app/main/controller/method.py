@@ -80,7 +80,6 @@ class Method_id(Resource):
     @app.doc(description="Deletes a method")
     @app.marshal_with(method)
     def delete(self, id):
-
         user_details = get_jwt_identity()
         out = delete_method(id, user_details["id"])
         return marshal(out, method)
