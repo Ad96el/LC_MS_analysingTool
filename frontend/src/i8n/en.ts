@@ -8,6 +8,7 @@ const customEnglishMessages: TranslationMessages = {
     create: 'Save and Create',
     cancel: 'Cancel',
     apply: 'Apply',
+    clear: 'Clear',
   },
   pos: {
     search: 'Search',
@@ -40,6 +41,7 @@ const customEnglishMessages: TranslationMessages = {
       sampleEdit: 'Samples are getting updated. Please wait...',
       samplesetEdit: 'Sample Set is getting updated. Please wait...',
       sampleset: 'Result Set with all Results are getting created. This operation is computation heavy. Please wait...',
+      combine: 'Results get combined. Please wait...',
       table: 'Tables are getting prepared. Please wait...',
     },
     util: {
@@ -86,6 +88,7 @@ const customEnglishMessages: TranslationMessages = {
         export: 'Export',
       },
       peakpicking: {
+        animation: 'Disable Animation',
         name: 'Peak Picking',
         zoom: 'Zoom',
         zoomo: 'Zoom out',
@@ -257,6 +260,15 @@ const customEnglishMessages: TranslationMessages = {
         user: 'Created by',
       },
       resultset: {
+        expect: 'It is expected: 2*H + 2*L = D',
+        diffHeavy: 'Error in Heavy Chain (H)',
+        diffLight: 'Error in Light Chain (L)',
+        diffD: 'Error in Deglycosylation (D)',
+        errors: 'Errors',
+        speciesHeavy: 'Heavy Chain species',
+        speciesLight: 'Light Chain species',
+        sugar: 'Sugar Candidates',
+        combine: 'Combine the four different analysis',
         merge: 'merge',
         name: 'Result Sets',
         created: 'Created',

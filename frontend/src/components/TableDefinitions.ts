@@ -122,6 +122,27 @@ export const massColoums: GridColDef[] = [
   { field: 'modificationQuantity', headerName: 'Mod Quantity', flex: 400 },
 ];
 
+export const sugarColumns: GridColDef[] = [
+  {
+    field: 'name',
+    headerName: 'Sugar',
+    flex: 380,
+  },
+  { field: 'chemadd', headerName: 'Chemical formula', flex: 400 },
+  {
+    field: 'mass', type: 'number', headerName: 'Mass (Da)', flex: 400,
+  },
+];
+
+export const speciesColumns: GridColDef[] = [
+  {
+    field: 'x',
+    headerName: 'Mass (Da)',
+    flex: 380,
+  },
+  { field: 'y', headerName: 'Intensity', flex: 400 },
+];
+
 export const ambrColumn : GridColDef[] = [
   {
     field: 'Column Name',

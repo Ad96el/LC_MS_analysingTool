@@ -262,12 +262,12 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
 
           <Box display="flex" p={1}>
             <Box p={1} flexGrow={1} style={{ height: '100%', width: '60%' }}>
-              <Typography variant="h5" color="textSecondary">
+              <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em' }}>
 
                 {translate('resources.routes.sample.detectpeak')}
               </Typography>
               <div style={{
-                height: 500, width: window.innerWidth * 0.4, margin: 1,
+                height: 565, width: window.innerWidth * 0.4, margin: 1,
               }}
               >
                 <DataGrid
@@ -277,7 +277,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
                   pageSize={10}
                   loading={loading}
                   columns={columns}
-                  rowsPerPageOptions={[10, 15, 20]}
+                  style={{ margin: '1em' }}
                   components={{
                     Toolbar: GridToolbar,
                   }}
@@ -287,7 +287,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
 
             </Box>
             <Box p={1}>
-              <Typography style={{ marginLeft: '2em' }} variant="h5" color="textSecondary">
+              <Typography style={{ marginLeft: '1em' }} variant="h5" color="textSecondary">
                 {translate('resources.routes.sample.ms')}
               </Typography>
 

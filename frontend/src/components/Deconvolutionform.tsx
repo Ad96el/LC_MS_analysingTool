@@ -30,7 +30,7 @@ const DeconvolutionForm : React.FC<DeconvolutionFormI> = ({
   };
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <div className={classes.textfields}>
         <TextField
           disabled={!editable}

@@ -162,7 +162,7 @@ const PeakSelectionTab : React.FC<any> = ({ record }) => {
           <DataGrid
             rows={data ? data?.peaks : []}
             pageSize={10}
-            rowsPerPageOptions={[10, 15, 20]}
+            style={{ margin: '1em' }}
             disableSelectionOnClick
             columns={columns}
             components={{

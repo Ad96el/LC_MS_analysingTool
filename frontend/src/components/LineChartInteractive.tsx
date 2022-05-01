@@ -342,9 +342,11 @@ const Chart : React.FC<GraphI> = ({
               <ResponsiveContainer height={half ? 550 : window.innerHeight * 0.56} width="95%">
                 <LineChart
                   width={width}
-                  margin={{ bottom: 10, left: 20 }}
                   height={half ? 500 : window.innerHeight * 0.56}
                   onMouseDown={handlemouseDown}
+                  margin={{
+                    top: 20, right: 20, bottom: 20, left: 20,
+                  }}
                   onMouseMove={handlemouseMove}
                   onMouseUp={handleEvents}
                 >
@@ -389,6 +391,7 @@ const Chart : React.FC<GraphI> = ({
                       dot={false}
                       type="linear"
                       dataKey={graph.dataKey}
+                      isAnimationActive={false}
                       stroke={graph.color}
                     />
 
@@ -397,6 +400,7 @@ const Chart : React.FC<GraphI> = ({
                       data={graph.data}
                       yAxisId="1"
                       dot={false}
+                      isAnimationActive={false}
                       type="linear"
                       dataKey={graph.dataKey}
                       stroke={graph.color}

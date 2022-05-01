@@ -59,7 +59,7 @@ const MethodExpand = (props) => {
         rows={modifications}
         columns={columns}
         className={classes.root}
-        rowsPerPageOptions={[7, 15, 20]}
+        style={{ margin: '1em' }}
         pageSize={7}
         onRowClick={handleClick}
         components={{

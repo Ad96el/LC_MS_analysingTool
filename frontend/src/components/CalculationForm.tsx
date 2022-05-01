@@ -17,7 +17,7 @@ const CalculationForm : React.FC<CalculationForm> = ({
   const translate = useTranslate();
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <div className={classes.textfields}>
         <TextField
           disabled={!editable}

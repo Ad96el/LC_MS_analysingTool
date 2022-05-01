@@ -3,14 +3,17 @@ import dataProvider from 'dataProvider';
 import {
   N, D, DR, R,
 } from 'media';
+
 import { Record, useNotify, useTranslate } from 'ra-core';
 import {
   Button, Fab,
-  createStyles, makeStyles, Paper, TextField,
+  createStyles, makeStyles, Paper, TextField, Typography,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from 'react-router';
+import { Loading } from 'react-admin';
+import ResultView from './ResultView';
 
 const useStyles = makeStyles(() => createStyles({
 
@@ -32,6 +35,7 @@ const CombinePage = () : React.ReactElement => {
   const notify = useNotify();
   const history = useHistory();
 
+  const [loading, setLoading] = React.useState(false);
   const [results, setResults] = React.useState<Record[]>([]);
   const [analyzisData, setAnalyzisData] = React.useState<any>();
   const [selectedResulsts, setSelectedResulsts] = React.useState(
@@ -60,6 +64,7 @@ const CombinePage = () : React.ReactElement => {
   };
 
   const submit = async () => {
+    setLoading(true);
     const sendObject = {
       N: '', R: '', D: '', DR: '',
     };
@@ -72,11 +77,13 @@ const CombinePage = () : React.ReactElement => {
     });
     if (ids.includes('-1')) {
       notify('Please select for all kinds a result');
+      setLoading(false);
       return;
     }
 
-    // const data = await dataProvider.combine(sendObject);
-    setAnalyzisData({ bla: 'blaa' });
+    const data = await dataProvider.combine(sendObject);
+    setAnalyzisData(data);
+    setLoading(false);
   };
 
   React.useEffect(() => {
@@ -102,10 +109,13 @@ const CombinePage = () : React.ReactElement => {
       </Fab>
 
       <Paper className={classes.root}>
-        {analyzisData && <div>asdf</div>}
+        {loading && <Loading loadingPrimary="resources.message.loading" loadingSecondary="resources.message.combine" /> }
+        {analyzisData && !loading && <ResultView data={analyzisData} /> }
         {!analyzisData
+         && !loading
         && (
         <>
+          <Typography variant="h4" style={{ textAlign: 'center', margin: '1em' }}>{translate('resources.routes.resultset.combine')}</Typography>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
             {Object.keys(selectedResulsts).map((i) => (
               <div className={classes.img}>

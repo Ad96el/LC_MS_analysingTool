@@ -227,10 +227,10 @@ const Page : React.FC = () => {
               <>
                 <div style={{ width: '100%', height: 450 }}>
                   <DataGrid
+                    style={{ margin: '1em' }}
                     disableSelectionOnClick
                     rows={data.summary}
                     pageSize={10}
-                    rowsPerPageOptions={[10, 15, 20]}
                     columns={ambrColumn}
                     components={{
                       Toolbar: GridToolbar,

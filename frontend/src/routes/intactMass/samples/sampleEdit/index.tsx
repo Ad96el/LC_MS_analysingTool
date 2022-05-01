@@ -209,7 +209,6 @@ const SampleEdit : React.FC<EditProps> = (props) => {
               className={classes.TextInput}
               label={translate('resources.routes.sample.color')}
               validate={required()}
-              picker="Sketch"
             />
           </FormTab>
           <FormTab label={translate('resources.routes.sample.peakselect')}>

@@ -19,7 +19,7 @@ const DataTable : React.FC<Types.DataTableI> = (props) => {
           rows={rows}
           columns={columns}
           pageSize={10}
-          rowsPerPageOptions={[10, 15, 20]}
+          style={{ margin: '1em' }}
           components={{
             Toolbar: GridToolbar,
           }}

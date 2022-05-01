@@ -7,8 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { logo } from '../media';
-
 const useStyles = makeStyles({
   title: {
     flex: 1,
@@ -55,7 +53,6 @@ const CustomAppBar : React.FC<any> = (props) => {
         variant="h6"
         className={classes.title}
       />
-      <img src={logo} alt="" className={classes.img} />
       <span className={classes.spacer} />
     </AppBar>
   );

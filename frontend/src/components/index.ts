@@ -7,7 +7,13 @@ import TypeSelect from './TypeSelect';
 import LineChart from './LineChartInteractive';
 import DeconvolutionForm from './Deconvolutionform';
 import {
-  getColumnsAssign, getColumPeakDecon, getColumPeak, massColoums, ambrColumn,
+  getColumnsAssign,
+  getColumPeakDecon,
+  getColumPeak,
+  massColoums,
+  ambrColumn,
+  sugarColumns,
+  speciesColumns,
 } from './TableDefinitions';
 import SnackMessage from './SnackMessage';
 import { TransferList, selectedI } from './TransferList';
@@ -17,10 +23,10 @@ import CheckedList from './CheckedList';
 import GridToolbar from './GridToolbar';
 
 export {
-  VersionBar, ShowBar, EditBar, ToolBarLight, TabPanel,
+  VersionBar, ShowBar, EditBar, ToolBarLight, TabPanel, speciesColumns,
   CalculationForm, TypeSelect, LineChart, DeconvolutionForm, getColumnsAssign,
   getColumPeakDecon, getColumPeak, massColoums, NavigationHeader, SnackMessage,
-  TransferList, Upload, ambrColumn, CheckedList, GridToolbar,
+  TransferList, Upload, ambrColumn, CheckedList, GridToolbar, sugarColumns,
 };
 
 export type { selectedI };

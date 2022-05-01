@@ -193,6 +193,7 @@ const SampleTable : React.FC<any> = (props) => {
           <div className={classes.graph}>
             <DataGrid
               disableSelectionOnClick
+              style={{ margin: '1em' }}
               onCellEditCommit={applyChanges}
               rows={rows}
               columns={columns}

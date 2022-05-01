@@ -10,6 +10,14 @@ const axs = axios.create({
   },
 });
 
+interface idsI{
+  N: string,
+  D: string,
+  R: string,
+  DR: string
+
+}
+
 const provider = {
 
   getVersions: async (route: string, id: string) : Promise<any> => {
@@ -59,7 +67,7 @@ const provider = {
     }
   },
 
-  combine: async (ids : any) : Promise<any> => {
+  combine: async (ids : idsI) : Promise<any> => {
     try {
       const response = await axs.post('/result/analyze', ids);
       if (response.status === 200) {

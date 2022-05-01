@@ -97,7 +97,7 @@ const ResultsExpand = (props) => {
       pageSize={8}
       className={classes.root}
       onRowClick={handleClick}
-      rowsPerPageOptions={[8, 15, 20]}
+      style={{ margin: '1em' }}
       components={{
         Toolbar: GridToolbar,
       }}

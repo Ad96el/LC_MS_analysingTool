@@ -117,7 +117,7 @@ const PeakSelectionTab : React.FC<any> = ({ record }) => {
                   rows={peak}
                   pageSize={10}
                   columns={columns}
-                  rowsPerPageOptions={[10, 15, 20]}
+                  style={{ margin: '1em' }}
                   components={{
                     Toolbar: GridToolbar,
                   }}

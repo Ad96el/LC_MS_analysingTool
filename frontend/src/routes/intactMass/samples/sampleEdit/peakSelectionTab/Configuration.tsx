@@ -61,8 +61,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-// let count = 0;
-
 const SideView : React.FC<ConfigurationI> = ({ open, setOpen, methodRaw }) => {
   // hooks
   const classes = useStyles();
@@ -120,19 +118,6 @@ const SideView : React.FC<ConfigurationI> = ({ open, setOpen, methodRaw }) => {
     setMethod(updMethod);
     setChanged(true);
   };
-
-  // const addRow = () => {
-  //   const updComponent = [...method?.components as Types.MethodSet.ComponentI[]];
-  //   const upd = { ...method as Types.MethodSet.method };
-
-  //   updComponent.push({
-  //     id: count, name: 'component', rt: 0, window: 1, type: 'closest',
-  //   });
-  //   upd.components = updComponent;
-  //   setMethod(upd);
-  //   setChanged(true);
-  //   count += 1;
-  // };
 
   const handleSubmit = async () => {
     const upd : Types.LooseObject = { ...method };
@@ -199,7 +184,7 @@ const SideView : React.FC<ConfigurationI> = ({ open, setOpen, methodRaw }) => {
 
   return (
 
-    <Drawer style={{ width: 400 }} anchor="right" open={open} onClose={() => setOpen(false)}>
+    <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
 
       <div style={{ width: window.innerWidth * 0.4, margin: '1em' }}>
         <Box display="flex">
@@ -283,18 +268,12 @@ const SideView : React.FC<ConfigurationI> = ({ open, setOpen, methodRaw }) => {
                         <div className={classes.grid}>
                           <DataGrid
                             onCellEditCommit={applyChanges}
+                            style={{ margin: '1em', width: '100%' }}
                             disableSelectionOnClick
                             rows={method?.components as Types.MethodSet.ComponentI[]}
                             columns={columns}
                             hideFooter
                           />
-                          <div className={classes.fab}>
-                            {/*
-                            <Fab size="small" color="primary" aria-label="add" onClick={addRow}>
-                              <AddIcon />
-                            </Fab> */}
-
-                          </div>
 
                         </div>
                       </div>

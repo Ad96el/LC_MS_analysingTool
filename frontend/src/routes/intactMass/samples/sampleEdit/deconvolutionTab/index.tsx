@@ -149,7 +149,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
               key={rerender}
               options={peaks.data}
               getOptionLabel={(option) => `Peak start: ${option.start}, Peak end: ${option.end}`}
-              style={{ width: '400px', marginLeft: '1em' }}
+              style={{ width: '400px', marginLeft: '2.5em' }}
               onChange={(_, obj) => handlePeakSelection(obj)}
               autoComplete
               renderInput={(params) => <TextField {...params} label={translate('resources.routes.sample.peakswitch')} />}
@@ -174,7 +174,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
 
         <Box display="flex" p={1}>
           <Box p={1} flexGrow={1} style={{ height: '100%', width: '50%' }}>
-            <Typography variant="h5" color="textSecondary">
+            <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em' }}>
               {translate('resources.routes.sample.msspectrum')}
             </Typography>
             <LineChart
@@ -189,7 +189,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
             />
           </Box>
           <Box p={1} flexGrow={1} style={{ height: '100%', width: '50%' }}>
-            <Typography variant="h5" color="textSecondary">
+            <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em' }}>
               {translate('resources.routes.sample.decon')}
             </Typography>
             <LineChart
@@ -207,7 +207,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
             />
           </Box>
         </Box>
-        <Typography variant="h5" color="textSecondary">
+        <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em' }}>
           {translate('resources.routes.sample.tabledeconpeak')}
         </Typography>
         <div style={{
@@ -219,7 +219,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
             pageSize={10}
             loading={loading}
             columns={columns}
-            rowsPerPageOptions={[10, 15, 20]}
+            style={{ margin: '1em' }}
             disableSelectionOnClick
             components={{
               Toolbar: GridToolbar,

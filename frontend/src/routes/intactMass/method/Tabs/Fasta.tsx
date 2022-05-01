@@ -128,14 +128,26 @@ const FastaTab : React.FC<any> = (props) => {
 
       <div className={classes.apply}>
         <div className={classes.tables} style={editable ? { width: '48%' } : { width: '100%' }}>
-          <Typography>
+          <Typography style={{ marginLeft: '1em' }}>
+
             {translate('resources.routes.method.mass')}
           </Typography>
+          <Button
+            variant="contained"
+            color={rows.length > 0 ? 'secondary' : 'primary'}
+            disabled={rows.length === 0}
+            style={{
+              position: 'absolute', right: 0, top: -20, margin: '1em',
+            }}
+            onClick={() => { setRows([]); }}
+          >
+            {translate('util.clear')}
+          </Button>
           <DataGrid
             disableSelectionOnClick
             rows={rows}
             pageSize={10}
-            rowsPerPageOptions={[10, 15, 20]}
+            style={{ margin: '1em' }}
             columns={columns}
             components={{
               Toolbar: GridToolbar,
@@ -144,14 +156,16 @@ const FastaTab : React.FC<any> = (props) => {
         </div>
         {editable && (
         <div className={classes.tables}>
-          <Typography>
+          <Typography style={{ marginLeft: '1em' }}>
             {translate('resources.routes.method.masspreview')}
           </Typography>
           <Button
             variant="contained"
             color={preview.length > 0 ? 'secondary' : 'primary'}
             disabled={preview.length === 0}
-            style={{ position: 'absolute', right: 0, top: -20 }}
+            style={{
+              position: 'absolute', right: 0, top: -20, margin: '1em',
+            }}
             onClick={applyPreview}
           >
             {translate('util.apply')}
@@ -162,7 +176,7 @@ const FastaTab : React.FC<any> = (props) => {
             rows={preview}
             pageSize={10}
             columns={columns}
-            rowsPerPageOptions={[10, 15, 20]}
+            style={{ margin: '1em' }}
             components={{
               Toolbar: GridToolbar,
             }}

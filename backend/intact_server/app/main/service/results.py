@@ -4,6 +4,7 @@ from typing import Dict, List
 from flask import abort
 import json
 import os
+import itertools
 import base64
 from scipy.signal import find_peaks
 # own libs
@@ -212,12 +213,23 @@ def createResultPdf(id: str):
 
 
 def identify_species(data: dict):
+    error_msgs = []
+    aligned_heavy_chain_species = []
+    aligned_light_chain_species = []
     decon_data = json.loads(data["deconData"])
+    if(len(decon_data) != 2):
+        error_msgs.append(
+            f"ERROR identify species: Found to many species. Expected two got {len(decon_data)}. Selected the first two. Please check th LC")
     first_peak, second_peak = decon_data[0], decon_data[1]
-    if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
-        return {}
 
-    if (first_peak["peaks"][0]["peakMass"] > second_peak["peaks"][0]["peakMass"]):
+    if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
+        error_msgs.append(f"""ERROR deconvoluted peak species: Found to many species for the LC or HC. 
+        Expected two. found for HC: {len(second_peak["peaks"])} and for LC: {len(second_peak["peaks"])} 
+            Selected those with the highest intensity.""")
+    first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
+    second_peak_index = next((i for i, e in enumerate(second_peak["peaks"]) if e["peakIntensity"] == 100))
+
+    if (first_peak["peaks"][first_peak_index]["peakMass"] > second_peak["peaks"][second_peak_index]["peakMass"]):
         heavy_chain = first_peak
         light_chain = second_peak
     else:
@@ -231,8 +243,6 @@ def identify_species(data: dict):
 
     heavy_main_peak = {"x": heavy_chain["peaks"][0]["peakMass"], "y": 100}
     light_main_peak = {"x": light_chain["peaks"][0]["peakMass"], "y": 100}
-    aligned_heavy_chain_species = []
-    aligned_light_chain_species = []
 
     for specie in heavy_chain_species:
         point = heavy_chain["decon"][specie]
@@ -246,7 +256,7 @@ def identify_species(data: dict):
             continue
         aligned_light_chain_species.append(light_chain["decon"][specie])
 
-    return {"heavyChainSpecies": aligned_heavy_chain_species, "lightChainSpecies": aligned_light_chain_species}
+    return {"heavyChainSpecies": aligned_heavy_chain_species, "lightChainSpecies": aligned_light_chain_species}, error_msgs
 
 
 def identify_sugars(species, signal):
@@ -276,45 +286,102 @@ def identify_sugars(species, signal):
     return sugar_candidates
 
 
-def get_modification_candidates(specie):
+# def get_modification_candidates(specie):
+#     decon_data = json.loads(specie["deconData"])
+#     first_peak, second_peak = decon_data[0], decon_data[1]
+#     if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
+#         return
+#     if (first_peak["peaks"][0]["peakMass"] > second_peak["peaks"][0]["peakMass"]):
+#         heavy_chain = first_peak["peaks"][0]
+#         light_chain = second_peak["peaks"][0]
+#     else:
+#         heavy_chain = second_peak["peaks"][0]
+#         light_chain = first_peak["peaks"][0]
+
+#     light_chain_mod = []
+#     heavy_chain_mod = []
+
+#     with open(os.getcwd()+"/static/json/mod.json", "rb") as json_mod:
+#         mod_data = json.load(json_mod)
+#     for mod in mod_data:
+#         if(mod["mass"] == light_chain["error"]):
+#             light_chain_mod.append(mod)
+#         if(mod["mass"] == heavy_chain["error"]):
+#             heavy_chain_mod.append(mod)
+
+#     return {"heavyChainMod": heavy_chain_mod, "lightChainMod": light_chain_mod}
+
+
+def get_difference_molecule_D(molecule):
+    decon_data = json.loads(molecule["deconData"])
+    error_msgs = []
+    if(len(decon_data) > 1):
+        error_msgs.append(
+            f"""ERROR to many peaks in D: Expected to have one peak. Found {len(decon_data)}. Check the LC of D. Selected the first one.""")
+    first_peak = decon_data[0]
+    if(len(first_peak["peaks"]) > 1):
+        error_msgs.append(
+            f"""ERROR to many Species in D: Expected to have one peak. Found {len(first_peak["peaks"])}. 
+            Check the deconvolution of the first LC peak of D. 
+            Further calculation are based on the peak with the highest intensity.""")
+    first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
+    return first_peak["peaks"][first_peak_index]["error"], error_msgs
+
+
+def get_difference_molecule_N(molecule):
+    decon_data = json.loads(molecule["deconData"])
+    error_msgs = []
+    if(len(decon_data) > 1):
+        error_msgs.append(
+            f"""ERROR to many peaks in N: Expected to have one peak. Found {len(decon_data)}. Check the LC of N. Selected the first one.""")
+    first_peak = decon_data[0]
+    first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
+    return first_peak["peaks"][first_peak_index]["error"], error_msgs
+
+
+def get_difference_chain(specie):
     decon_data = json.loads(specie["deconData"])
     first_peak, second_peak = decon_data[0], decon_data[1]
-    if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
-        return
-    if (first_peak["peaks"][0]["peakMass"] > second_peak["peaks"][0]["peakMass"]):
-        heavy_chain = first_peak["peaks"][0]
-        light_chain = second_peak["peaks"][0]
+    first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
+    second_peak_index = next((i for i, e in enumerate(second_peak["peaks"]) if e["peakIntensity"] == 100))
+    if (first_peak["peaks"][first_peak_index]["peakMass"] > second_peak["peaks"][second_peak_index]["peakMass"]):
+        heavy_chain = first_peak["peaks"][first_peak_index]
+        light_chain = second_peak["peaks"][second_peak_index]
     else:
-        heavy_chain = second_peak["peaks"][0]
-        light_chain = first_peak["peaks"][0]
+        heavy_chain = second_peak["peaks"][first_peak_index]
+        light_chain = first_peak["peaks"][second_peak_index]
 
-    light_chain_mod = []
-    heavy_chain_mod = []
-
-    with open(os.getcwd()+"/static/json/mod.json", "rb") as json_mod:
-        mod_data = json.load(json_mod)
-    for mod in mod_data:
-        if(mod["mass"] == light_chain["error"]):
-            light_chain_mod.append(mod)
-        if(mod["mass"] == heavy_chain["error"]):
-            heavy_chain_mod.append(mod)
-    return {"heavyChainMod": heavy_chain_mod, "lightChainMod": light_chain_mod}
+    difference_light_chain = light_chain["error"]
+    difference_heavy_chain = heavy_chain["error"]
+    return difference_heavy_chain, difference_light_chain
 
 
-def identify_modification(specie_dr, specie_d):
-    candidates = get_modification_candidates(specie_dr)
-    return candidates
+def identify_modification(specie_dr, specie_d, specie_N):
+    difference_heavy, difference_light = get_difference_chain(specie_dr)
+    difference_mole_d, error_msgs = get_difference_molecule_D(specie_d)
+    difference_mole_n, error_msgs_n = get_difference_molecule_N(specie_N)
+
+    out = {"diffHeavy": difference_heavy, "diffLight": difference_light, "diffD": difference_mole_d}
+
+    #candidates = get_modification_candidates(specie_dr)
+    error_msgs.extend(error_msgs_n)
+    return out, error_msgs
 
 
 def analyze_result_together(ids: dict):
     r_result = get_result(ids["R"])
-    # n_result = get_result(ids["N"])
-    #d_result = get_result(ids["D"])
+    n_result = get_result(ids["N"])
+    d_result = get_result(ids["D"])
     dr_result = get_result(ids["DR"])
-    print(dr_result.as_dict())
-    species = identify_species(dr_result.as_dict())
+    species, error_msgs = identify_species(dr_result.as_dict())
 
-    print(species)
     sugar_candidates = identify_sugars(species["heavyChainSpecies"], r_result.as_dict())
-    mod_candidates = identify_modification(dr_result.as_dict(), None)  # d_result.as_dict())
-    return {"species": species, "sugar": sugar_candidates, "mod": mod_candidates}
+    mod_candidates, error_msgs_mod = identify_modification(
+        dr_result.as_dict(),
+        d_result.as_dict(),
+        n_result.as_dict())
+    error_msgs_mod.extend(error_msgs)
+    return {"species": species,
+            "sugar": sugar_candidates,
+            "mod": mod_candidates,
+            "errors": error_msgs_mod}

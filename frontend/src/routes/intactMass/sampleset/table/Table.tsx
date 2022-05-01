@@ -290,7 +290,7 @@ const SampleTable : React.FC<Table> = ({
           rows={rows}
           pageSize={10}
           loading={loading || fetchLoading}
-          rowsPerPageOptions={[10, 15, 20]}
+          style={{ margin: '1em' }}
           columns={columns}
           components={{
             Toolbar: GridToolbar,
