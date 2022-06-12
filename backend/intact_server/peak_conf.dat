@@ -13,8 +13,8 @@ mzsig 0.1
 psfun 0
 zpsfun 0
 discreteplot 0
-massub 140000
-masslb 40000
+massub 150000
+masslb 140000
 msig 0
 molig 0
 massbins 1
@@ -26,7 +26,7 @@ subtype 2
 smooth 0
 mzbins 0
 peakwindow 5
-peakthresh 0.1
+peakthresh 0.2
 peakplotthresh 1
 plotsep 0.025
 intthresh 0

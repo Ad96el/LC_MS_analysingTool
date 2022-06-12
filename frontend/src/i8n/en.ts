@@ -260,6 +260,7 @@ const customEnglishMessages: TranslationMessages = {
         user: 'Created by',
       },
       resultset: {
+        validation: 'Validation',
         expect: 'It is expected: 2*H + 2*L = D',
         diffHeavy: 'Error in Heavy Chain (H)',
         diffLight: 'Error in Light Chain (L)',

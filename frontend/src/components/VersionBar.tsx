@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     width: '15%',
     marginLeft: '1em',
-    maxHeight: window.innerHeight * 0.7,
+    maxHeight: window.innerHeight * 0.3,
   },
   paper: {
     width: '93%',

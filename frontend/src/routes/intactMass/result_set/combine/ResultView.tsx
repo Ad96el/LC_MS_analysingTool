@@ -62,7 +62,7 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
   const translate = useTranslate();
   const { errors, mod } = data;
 
-  const errorCalc = mod.diffHeavy * 2 + mod.diffLight * 2 !== mod.diffD;
+  const errorCalc = Math.abs((mod.diffHeavy * 2 + mod.diffLight * 2) - mod.diffD) >= 10;
 
   return (
     <>
@@ -93,7 +93,7 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
 
         <div>
 
-          <Typography style={{ margin: '1em' }} variant="h6">{translate('resources.routes.resultset.sugar') }</Typography>
+          <Typography style={{ margin: '1em' }} variant="h5">{translate('resources.routes.resultset.sugar') }</Typography>
 
           <DataGrid
             disableSelectionOnClick
@@ -107,7 +107,7 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
           />
         </div>
         <div>
-          <Typography style={{ marginTop: '1em' }} variant="h6">{translate('resources.routes.resultset.sugar') }</Typography>
+          <Typography style={{ marginTop: '1em' }} variant="h5">{translate('resources.routes.resultset.validation') }</Typography>
           <div style={{
             display: 'flex',
             flexDirection: 'row',
@@ -170,10 +170,10 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
             { !errorCalc && (
             <>
 
-              { `2 * ${mod.diffLight} + 2 * ${mod.diffHeavy} = ${mod.diffD}`}
+              { `2 * ${mod.diffLight} + 2 * ${mod.diffHeavy} ≈ ${mod.diffD}`}
               <br />
               <div style={{ color: '#4f3cc9' }}>
-                Expected Error found. Modification are valid
+                Expected Error founds. Modification are valid. Analyzis are valid.
               </div>
 
             </>
@@ -192,7 +192,7 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
 
         <div>
 
-          <Typography style={{ margin: '1em' }} variant="h6">{translate('resources.routes.resultset.speciesLight') }</Typography>
+          <Typography style={{ margin: '1em' }} variant="h5">{translate('resources.routes.resultset.speciesLight') }</Typography>
 
           <DataGrid
             disableSelectionOnClick
@@ -206,7 +206,7 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
           />
         </div>
         <div>
-          <Typography style={{ margin: '1em' }} variant="h6">{translate('resources.routes.resultset.speciesHeavy') }</Typography>
+          <Typography style={{ margin: '1em' }} variant="h5">{translate('resources.routes.resultset.speciesHeavy') }</Typography>
           <DataGrid
             disableSelectionOnClick
             style={{ width: window.innerWidth * 0.4, height: 600, margin: '1em' }}
