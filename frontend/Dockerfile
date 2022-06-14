@@ -1,4 +1,4 @@
-FROM node:10.19.0
+FROM node:14.19.1
 
 # set working directory
 WORKDIR /app/
@@ -13,8 +13,5 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies and build 
 COPY . .
 RUN npm install
-RUN npm run build --prod 
-
-RUN apt-get update && apt-get -y install python3-pip
-RUN pip3 install httpserver
-WORKDIR /app/build
+RUN npm install -g serve
+#RUN npm run build  

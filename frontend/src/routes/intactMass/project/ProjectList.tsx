@@ -90,7 +90,6 @@ const SampleSetExpand = (props) => {
       loading={loading}
       columns={columns}
       pageSize={8}
-      style={{ margin: '1em' }}
       className={classes.root}
       onRowClick={handleClick}
       components={{

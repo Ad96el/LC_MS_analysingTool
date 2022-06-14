@@ -100,14 +100,16 @@ const FastaTab : React.FC<any> = (props) => {
 
   const VerticalSpacer = () => <span style={{ height: '1em' }} />;
   return (
-    <div style={{ margin: '1em' }}>
+    <div style={{ }}>
 
       <div style={{ display: 'flex' }}>
         {editable && (
         <TextField
           select
           value={kind}
-          style={{ marginBottom: '2em', width: 300, marginLeft: 'auto' }}
+          style={{
+            marginBottom: '2em', width: 300, marginRight: 'auto', marginLeft: '2em',
+          }}
           disabled={!editable}
           required={isRequired}
           id="standard-select-currency"

@@ -43,6 +43,7 @@ def create_app(configType: str):
 
     state = configType if type(configType) == str else "development"
     app.config.from_object(app_config[state])
+    print(app_config[state], state )
 
     # add cors
     CORS(app, resources={r"/*": {"origins": "*"}})

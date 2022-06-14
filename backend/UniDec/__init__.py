@@ -1365,12 +1365,8 @@ def run_unidec(file: str, folder: str, **kwargs):
     eng.run_unidec(silent=True)
     eng.pick_peaks()
     eng.dscore() 
-
     # data reduction
-
     decon_reduction = kwargs["params"]["reduction"] if "reduction" in kwargs["params"] else 0.1
-    raw_reduction = kwargs["params"]["reductionRaw"] if "reductionRaw" in kwargs["params"] else 0 
- 
-
+    raw_reduction = kwargs["params"]["reductionRaw"] if "reductionRaw" in kwargs["params"] else 0
     return get_data(eng, decon_reduction, raw_reduction)
  

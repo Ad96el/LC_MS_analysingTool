@@ -222,10 +222,6 @@ def identify_species(data: dict):
             f"ERROR identify species: Found to many species. Expected two got {len(decon_data)}. Selected the first two. Please check th LC")
     first_peak, second_peak = decon_data[0], decon_data[1]
 
-    if(len(first_peak["peaks"]) > 1 or len(second_peak["peaks"]) > 1):
-        error_msgs.append(f"""ERROR deconvoluted peak species: Found to many species for the LC or HC. 
-        Expected two. found for HC: {len(second_peak["peaks"])} and for LC: {len(second_peak["peaks"])} 
-            Selected those with the highest intensity.""")
     first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
     second_peak_index = next((i for i, e in enumerate(second_peak["peaks"]) if e["peakIntensity"] == 100))
 
@@ -246,15 +242,13 @@ def identify_species(data: dict):
 
     for specie in heavy_chain_species:
         point = heavy_chain["decon"][specie]
-        if (abs(point["x"] - heavy_main_peak["x"]) > 1000):
-            continue
-        aligned_heavy_chain_species.append(heavy_chain["decon"][specie])
+        if (abs(point["x"] - heavy_main_peak["x"]) < 1000):
+            aligned_heavy_chain_species.append(point)
 
     for specie in light_chain_species:
         point = light_chain["decon"][specie]
-        if (abs(point["x"] - light_main_peak["x"]) > 1000):
-            continue
-        aligned_light_chain_species.append(light_chain["decon"][specie])
+        if (abs(point["x"] - light_main_peak["x"]) < 1000):
+            aligned_light_chain_species.append(light_chain["decon"][specie])
 
     return {"heavyChainSpecies": aligned_heavy_chain_species, "lightChainSpecies": aligned_light_chain_species}, error_msgs
 
@@ -317,11 +311,11 @@ def get_difference_molecule_D(molecule):
     error_msgs = []
     if(len(decon_data) > 1):
         error_msgs.append(
-            f"""ERROR to many peaks in D: Expected to have one peak. Found {len(decon_data)}. Check the LC of D. Selected the first one.""")
+            f"""ERROR to many peaks in D: Expected to have 1 peak. Found {len(decon_data)}. Check the LC of D. Selected the first 1.""")
     first_peak = decon_data[0]
     if(len(first_peak["peaks"]) > 1):
         error_msgs.append(
-            f"""ERROR to many Species in D: Expected to have one peak. Found {len(first_peak["peaks"])}. 
+            f"""ERROR to many Species in D: Expected to have 1 peak. Found {len(first_peak["peaks"])}. 
             Check the deconvolution of the first LC peak of D. 
             Further calculation are based on the peak with the highest intensity.""")
     first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
@@ -333,7 +327,7 @@ def get_difference_molecule_N(molecule):
     error_msgs = []
     if(len(decon_data) > 1):
         error_msgs.append(
-            f"""ERROR to many peaks in N: Expected to have one peak. Found {len(decon_data)}. Check the LC of N. Selected the first one.""")
+            f"""ERROR to many peaks in N: Expected to have 1 peak. Found {len(decon_data)}. Check the LC of N. Selected the first 1.""")
     first_peak = decon_data[0]
     first_peak_index = next((i for i, e in enumerate(first_peak["peaks"]) if e["peakIntensity"] == 100))
     return first_peak["peaks"][first_peak_index]["error"], error_msgs

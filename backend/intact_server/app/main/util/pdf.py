@@ -128,7 +128,7 @@ class PDF (FPDF):
             os.remove(os.getcwd()+'/static/' + str(count) + 'tmp.png')
 
     def createImage(self, data, kind="lc"):
-        xLabel = "Retention Time in Min." if kind is "lc" else "Mass in Dalton" if kind is "msDecon" else "M/Z in Dalton"
+        xLabel = "Retention Time in Min." if kind == "lc" else "Mass in Dalton" if kind == "msDecon" else "M/Z in Dalton"
         df = pd.DataFrame.from_records(data)
         fig = px.line(df, x="x", y="y",  labels=dict(x=xLabel, y="Intensity in %"))
         plotly.io.write_image(fig, file='static/' + str(self.imageCount) + 'tmp.png',

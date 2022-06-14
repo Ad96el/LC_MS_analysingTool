@@ -45,9 +45,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 
   grid: {
-    width: window.innerWidth * 0.35,
+    width: '100%',
     height: 400,
-    margin: '1em',
     display: 'flex',
     position: 'relative',
   },
@@ -58,6 +57,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   root: {
     height: 460,
+    width: '100%',
   },
 }));
 
@@ -268,7 +268,7 @@ const SideView : React.FC<ConfigurationI> = ({ open, setOpen, methodRaw }) => {
                         <div className={classes.grid}>
                           <DataGrid
                             onCellEditCommit={applyChanges}
-                            style={{ margin: '1em', width: '100%' }}
+                            style={{ width: '100%' }}
                             disableSelectionOnClick
                             rows={method?.components as Types.MethodSet.ComponentI[]}
                             columns={columns}

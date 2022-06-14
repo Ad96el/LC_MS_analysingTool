@@ -54,7 +54,15 @@ def detect_peak(signal ,pickingHeight=0.75, absThreshold=0, relThreshold=0, snTh
     # check pandas props. 
     profile = np.dstack((signal.x,signal.y))[0]
     first = scan(profile=profile)
-    first.labelscan(pickingHeight=pickingHeight, absThreshold=absThreshold, relThreshold= relThreshold, snThreshold= snThreshold , baselineWindow=baselineWindow, baselineOffset= baselineOffset, smoothMethod= smoothMethod, smoothWindow=smoothWindow, smoothCycles=smoothCycles)
+    first.labelscan(pickingHeight=pickingHeight, 
+                    absThreshold=absThreshold, 
+                    relThreshold= relThreshold, 
+                    snThreshold= snThreshold , 
+                    baselineWindow=baselineWindow, 
+                    baselineOffset= baselineOffset, 
+                    smoothMethod= smoothMethod, 
+                    smoothWindow=smoothWindow, 
+                    smoothCycles=smoothCycles)
     windows = [ width_index(profile, z.mz , 2000) for z in first.peaklist] 
     return [z.mz for z in first.peaklist], windows
 

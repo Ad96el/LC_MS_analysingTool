@@ -40,9 +40,7 @@ def create_project(name: str, sop: str, desc: str, uid: str) -> Project:
 
 def edit_project(pid: str, name: str, sop: str, desc: str,  uid: str) -> Project:
     user = get_user(uid)
-
     check_permissions(user.role, messages.ADMIN_PERMISSION)
-
     project = get_project(pid)
     project.sop = sop
     project.descr = desc
@@ -53,10 +51,8 @@ def edit_project(pid: str, name: str, sop: str, desc: str,  uid: str) -> Project
 
 def delete_project(pid: str, uid: str):
     user = get_user(uid)
-
     check_permissions(user.role, messages.ADMIN_PERMISSION)
     project = get_project(pid)
     out = project.as_dict()
-
     dataBaseDelete(project)
     return out

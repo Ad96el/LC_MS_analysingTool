@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
         elif (sys.argv[1] == "production"):
             app = create_app("production")
-            serve(app, port=4000, host="0.0.0.0", threads=8)
+            serve(app, port=5000, host="0.0.0.0", threads=8)
 
         elif (sys.argv[1] == "testing"):
             pytest.main(["-x", "app/test"])

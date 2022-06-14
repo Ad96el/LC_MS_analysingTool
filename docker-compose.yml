@@ -1,19 +1,19 @@
 version: '3.6'
 services: 
-  proxy:
-    volumes:
-      - ./volumes/data/certbot/conf:/etc/letsencrypt
-      - ./volumes/data/certbot/www:/var/www/certbot
-    build: ./proxy
-    restart: always
-    networks:
-      - intact_mass
-    ports:
-      - 80:80
-      - 443:443
-    depends_on: 
-      - api
-      - ui
+  # proxy:
+  #   volumes:
+  #     - ./volumes/data/certbot/conf:/etc/letsencrypt
+  #     - ./volumes/data/certbot/www:/var/www/certbot
+  #   build: ./proxy
+  #   restart: always
+  #   networks:
+  #     - intact_mass
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   depends_on: 
+  #     - api
+  #     - ui
   # eworkbook:
   #   build: ./eworkbook
   #   command: python app.py production
@@ -31,23 +31,23 @@ services:
     volumes:
       - ./volumes/static:/intact_server/static
     ports:
-        - 4000:4000
+        - 5000:5000
     restart: always
     networks: 
       - intact_mass
-  small:
-    build: ./Small_services
-    command: python app.py production
-    ports: 
-      - 4500:4500 
-    restart: always
-    networks: 
-      - intact_mass 
+  # small:
+  #   build: ./Small_services
+  #   command: python app.py production
+  #   ports: 
+  #     - 4500:4500 
+  #   restart: always
+  #   networks: 
+  #     - intact_mass 
   ui:
     build: ./frontend
     depends_on: 
       - api
-    command: python3 -m http.server 3000  
+    command: serve -s build
     restart: always
     ports:
       - 3000:3000
@@ -60,7 +60,7 @@ services:
       POSTGRES_DB: lonza
     image: postgres:13-alpine 
     ports:
-      - 5432:5432
+      - 5431:5432
     restart: always
     volumes:
       - ./volumes/postgres-data:/var/lib/postgresql/data
