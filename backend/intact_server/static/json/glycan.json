@@ -1,0 +1,1474 @@
+[
+    {
+        "name": "A1G0",
+        "abb": "G0",
+        "chemadd": "C42H69N3O30",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1096.0
+    },
+    {
+        "name": "A1G0F",
+        "abb": "G0F",
+        "chemadd": "C48H79N3O34",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1241.0
+    },
+    {
+        "name": "A1G0M4",
+        "abb": "M4",
+        "chemadd": "C48H79N3O35",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1257.0
+    },
+    {
+        "name": "A1G0M4F",
+        "abb": "M4F",
+        "chemadd": "C54H89N3O39",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1404.0
+    },
+    {
+        "name": "A1G0M5",
+        "abb": "M5",
+        "chemadd": "C54H89N3O40",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1420.0
+    },
+    {
+        "name": "A1G0M5F",
+        "abb": "M5F",
+        "chemadd": "C60H99N3O44",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1566.0
+    },
+    {
+        "name": "A1G1",
+        "abb": "G1",
+        "chemadd": "C48H79N3O35",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1258.0
+    },
+    {
+        "name": "A1G1F",
+        "abb": "G1F",
+        "chemadd": "C54H89N3O39",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1404.0
+    },
+    {
+        "name": "A1G1M4",
+        "abb": null,
+        "chemadd": "C54H89N3O40",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1419.0
+    },
+    {
+        "name": "A1G1M4F",
+        "abb": null,
+        "chemadd": "C60H99N3O44",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1565.0
+    },
+    {
+        "name": "A1G1M5",
+        "abb": null,
+        "chemadd": "C60H99N3O45",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1581.0
+    },
+    {
+        "name": "A1G1M5F",
+        "abb": null,
+        "chemadd": "C66H109N3O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1728.0
+    },
+    {
+        "name": "A1S1",
+        "abb": null,
+        "chemadd": "C59H96N4O43",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1548.0
+    },
+    {
+        "name": "A1S1F",
+        "abb": null,
+        "chemadd": "C65H106N4O47",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1694.0
+    },
+    {
+        "name": "A1S1M4",
+        "abb": null,
+        "chemadd": "C65H106N4O48",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1711.0
+    },
+    {
+        "name": "A1S1M4F",
+        "abb": null,
+        "chemadd": "C71H116N4O52",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1857.0
+    },
+    {
+        "name": "A1S1M5",
+        "abb": null,
+        "chemadd": "C71H116N4O53",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1872.0
+    },
+    {
+        "name": "A1S1M5F",
+        "abb": null,
+        "chemadd": "C77H126N4O57",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2018.0
+    },
+    {
+        "name": "A1Sg1",
+        "abb": null,
+        "chemadd": "C59H96N4O44",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1565.0
+    },
+    {
+        "name": "A1Sg1F",
+        "abb": null,
+        "chemadd": "C65H106N4O48",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1711.0
+    },
+    {
+        "name": "A2G0",
+        "abb": null,
+        "chemadd": "C50H82N4O35",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1299.0
+    },
+    {
+        "name": "A2G0B",
+        "abb": null,
+        "chemadd": "C58H95N5O40",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1502.0
+    },
+    {
+        "name": "A2G0F",
+        "abb": null,
+        "chemadd": "C56H92N4O39",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1445.0
+    },
+    {
+        "name": "A2G0FB",
+        "abb": null,
+        "chemadd": "C64H105N5O44",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1648.0
+    },
+    {
+        "name": "A2G0M4",
+        "abb": null,
+        "chemadd": "C56H92N4O40",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1460.0
+    },
+    {
+        "name": "A2G0M5F",
+        "abb": null,
+        "chemadd": "C68H112N40O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1769.0
+    },
+    {
+        "name": "A2G1",
+        "abb": null,
+        "chemadd": "C56H92N4O40",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1461.0
+    },
+    {
+        "name": "A2G1B",
+        "abb": null,
+        "chemadd": "C64H105N5O45",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1664.0
+    },
+    {
+        "name": "A2G1F",
+        "abb": null,
+        "chemadd": "C64H102N4O44",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1607.0
+    },
+    {
+        "name": "A2G1FB",
+        "abb": null,
+        "chemadd": "C70H115N5O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1810.0
+    },
+    {
+        "name": "A2G1M4",
+        "abb": null,
+        "chemadd": "C62H102N4O45",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1623.0
+    },
+    {
+        "name": "A2G1M4F",
+        "abb": null,
+        "chemadd": "C68H112N4O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1769.0
+    },
+    {
+        "name": "A2G1M5",
+        "abb": null,
+        "chemadd": "C68H112N4O50",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1785.0
+    },
+    {
+        "name": "A2G1M5F",
+        "abb": null,
+        "chemadd": "C74H112N4O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1931.0
+    },
+    {
+        "name": "A2G2",
+        "abb": null,
+        "chemadd": "C62H102N4O45",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1623.0
+    },
+    {
+        "name": "A2G2B",
+        "abb": null,
+        "chemadd": "C70H115N5O50",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1826.0
+    },
+    {
+        "name": "A2G2F",
+        "abb": null,
+        "chemadd": "C68H112N4O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1768.0
+    },
+    {
+        "name": "A2G2FB",
+        "abb": null,
+        "chemadd": "C76H125N5O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1971.0
+    },
+    {
+        "name": "A2G2M4",
+        "abb": null,
+        "chemadd": "C68H112N4O50",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1785.0
+    },
+    {
+        "name": "A2G2M4F",
+        "abb": null,
+        "chemadd": "C74H112N4O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1931.0
+    },
+    {
+        "name": "A2G2M5",
+        "abb": null,
+        "chemadd": "C74H122N4O55",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1947.0
+    },
+    {
+        "name": "A2G2M5F",
+        "abb": null,
+        "chemadd": "C80H132N4O59",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2093.0
+    },
+    {
+        "name": "A2S1G0",
+        "abb": null,
+        "chemadd": "C67H109N5O48",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1752.0
+    },
+    {
+        "name": "A2S1G0B",
+        "abb": null,
+        "chemadd": "C75H122N6O53",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1955.0
+    },
+    {
+        "name": "A2S1G0F",
+        "abb": null,
+        "chemadd": "C73H119N5O52",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1898.0
+    },
+    {
+        "name": "A2S1G0FB",
+        "abb": null,
+        "chemadd": "C81H132N6O57",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2101.0
+    },
+    {
+        "name": "A2S1G0M4",
+        "abb": null,
+        "chemadd": "C73H119N5O53",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1914.0
+    },
+    {
+        "name": "A2S1G0M4F",
+        "abb": null,
+        "chemadd": "C79H129N5O57",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2060.0
+    },
+    {
+        "name": "A2S1G0M5",
+        "abb": null,
+        "chemadd": "C79H129N5O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2076.0
+    },
+    {
+        "name": "A2S1G0M5F",
+        "abb": null,
+        "chemadd": "C85H139N5O62",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2223.0
+    },
+    {
+        "name": "A2S1G1",
+        "abb": null,
+        "chemadd": "C73H119N5O53",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1914.0
+    },
+    {
+        "name": "A2S1G1B",
+        "abb": null,
+        "chemadd": "C81H132N6O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2117.0
+    },
+    {
+        "name": "A2S1G1F",
+        "abb": null,
+        "chemadd": "C79H129N5O57",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2060.0
+    },
+    {
+        "name": "A2S1G1FB",
+        "abb": null,
+        "chemadd": "C87H142N6O62",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2264.0
+    },
+    {
+        "name": "A2S1G1M4",
+        "abb": null,
+        "chemadd": "C79H129N5O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2076.0
+    },
+    {
+        "name": "A2S1G1M4F",
+        "abb": null,
+        "chemadd": "C85H139N5O62",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2223.0
+    },
+    {
+        "name": "A2S1G1M5",
+        "abb": null,
+        "chemadd": "C85H139N5O63",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2239.0
+    },
+    {
+        "name": "A2S1G1M5F",
+        "abb": null,
+        "chemadd": "C91H149N5O67",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2385.0
+    },
+    {
+        "name": "A2S2",
+        "abb": null,
+        "chemadd": "C84H136N6O61",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2205.0
+    },
+    {
+        "name": "A2S2B",
+        "abb": null,
+        "chemadd": "C92H149N7O66",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2409.0
+    },
+    {
+        "name": "A2S2F",
+        "abb": null,
+        "chemadd": "C90H146N6O65",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2352.0
+    },
+    {
+        "name": "A2S2FB",
+        "abb": null,
+        "chemadd": "C98H159N7O70",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2555.0
+    },
+    {
+        "name": "A2S2M4",
+        "abb": null,
+        "chemadd": "C90H146N6O66",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2368.0
+    },
+    {
+        "name": "A2S2M4F",
+        "abb": null,
+        "chemadd": "C96H156N6O70",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2514.0
+    },
+    {
+        "name": "A2S2M5",
+        "abb": null,
+        "chemadd": "C96H156N6O71",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2530.0
+    },
+    {
+        "name": "A2S2M5F",
+        "abb": null,
+        "chemadd": "C102H166N6O75",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2676.0
+    },
+    {
+        "name": "A2Sg1G0",
+        "abb": null,
+        "chemadd": "C67H109N5O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1768.0
+    },
+    {
+        "name": "A2Sg1G0F",
+        "abb": null,
+        "chemadd": "C73H119N5O53",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1914.0
+    },
+    {
+        "name": "A2Sg1G1",
+        "abb": null,
+        "chemadd": "C73H119N5O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1930.0
+    },
+    {
+        "name": "A2Sg1G1F",
+        "abb": null,
+        "chemadd": "C79H129N5O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2076.0
+    },
+    {
+        "name": "A2Sg1S1",
+        "abb": null,
+        "chemadd": "C84H136N6O62",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2221.0
+    },
+    {
+        "name": "A2Sg1S1F",
+        "abb": null,
+        "chemadd": "C90H146N6O66",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2368.0
+    },
+    {
+        "name": "A2Sg2",
+        "abb": null,
+        "chemadd": "C84H136N6O63",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2237.0
+    },
+    {
+        "name": "A2Sg2F",
+        "abb": null,
+        "chemadd": "C90H146N6O67",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2384.0
+    },
+    {
+        "name": "A3G0",
+        "abb": null,
+        "chemadd": "C58H95N5O40",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1502.0
+    },
+    {
+        "name": "A3G0F",
+        "abb": null,
+        "chemadd": "C64H105N6O44",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1648.0
+    },
+    {
+        "name": "A3G1",
+        "abb": null,
+        "chemadd": "C64H105N5O45",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1664.0
+    },
+    {
+        "name": "A3G1F",
+        "abb": null,
+        "chemadd": "C70H115N5O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1810.0
+    },
+    {
+        "name": "A3G2",
+        "abb": null,
+        "chemadd": "C70H115N5O50",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1825.0
+    },
+    {
+        "name": "A3G2F",
+        "abb": null,
+        "chemadd": "C76H125N5O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1826.0
+    },
+    {
+        "name": "A3G3",
+        "abb": null,
+        "chemadd": "C76H125N5O55",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1988.0
+    },
+    {
+        "name": "A3G3F",
+        "abb": null,
+        "chemadd": "C82H135N5O59",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2134.0
+    },
+    {
+        "name": "A3S1G0",
+        "abb": null,
+        "chemadd": "C75H122N6O53",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1955.0
+    },
+    {
+        "name": "A3S1G0F",
+        "abb": null,
+        "chemadd": "C81H132N6O57",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2101.0
+    },
+    {
+        "name": "A3S1G1",
+        "abb": null,
+        "chemadd": "C81H132N6O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2117.0
+    },
+    {
+        "name": "A3S1G1F",
+        "abb": null,
+        "chemadd": "C87H142N6O62",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2264.0
+    },
+    {
+        "name": "A3S1G2",
+        "abb": null,
+        "chemadd": "C87H142N6O63",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2280.0
+    },
+    {
+        "name": "A3S1G2F",
+        "abb": null,
+        "chemadd": "C93H152N6O67",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2426.0
+    },
+    {
+        "name": "A3S2G0",
+        "abb": null,
+        "chemadd": "C92H149N7O66",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2409.0
+    },
+    {
+        "name": "A3S2G0F",
+        "abb": null,
+        "chemadd": "C98H159N7O70",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2555.0
+    },
+    {
+        "name": "A3S2G1",
+        "abb": null,
+        "chemadd": "C95H159N7O71",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2571.0
+    },
+    {
+        "name": "A3S2G1F",
+        "abb": null,
+        "chemadd": "C104H169N7O75",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2717.0
+    },
+    {
+        "name": "A3S3",
+        "abb": null,
+        "chemadd": "C109H176N8O79",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2862.0
+    },
+    {
+        "name": "A3S3F",
+        "abb": null,
+        "chemadd": "C115H186N8O83",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3008.0
+    },
+    {
+        "name": "A3Sg1G0",
+        "abb": null,
+        "chemadd": "C75H122N6O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1971.0
+    },
+    {
+        "name": "A3Sg1G0F",
+        "abb": null,
+        "chemadd": "C81H132N6O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2117.0
+    },
+    {
+        "name": "A3Sg1G1",
+        "abb": null,
+        "chemadd": "C81H132N6O59",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2133.0
+    },
+    {
+        "name": "A3Sg1G1F",
+        "abb": null,
+        "chemadd": "C87H142N6O63",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2280.0
+    },
+    {
+        "name": "A3Sg1G2",
+        "abb": null,
+        "chemadd": "C87H142N6O64",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2296.0
+    },
+    {
+        "name": "A3Sg1G2F",
+        "abb": null,
+        "chemadd": "C93H152N6O68",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2442.0
+    },
+    {
+        "name": "A3Sg1S1G0",
+        "abb": null,
+        "chemadd": "C92H149N7O67",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2425.0
+    },
+    {
+        "name": "A3Sg1S1G0F",
+        "abb": null,
+        "chemadd": "C98H159N7O71",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2571.0
+    },
+    {
+        "name": "A3Sg1S1G1",
+        "abb": null,
+        "chemadd": "C98H159N7O72",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2587.0
+    },
+    {
+        "name": "A3Sg1S1G1F",
+        "abb": null,
+        "chemadd": "C104H169N7O76",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2733.0
+    },
+    {
+        "name": "A3Sg1S2",
+        "abb": null,
+        "chemadd": "C109H176N8O80",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2878.0
+    },
+    {
+        "name": "A3Sg1S2F",
+        "abb": null,
+        "chemadd": "C115H186N8O84",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3024.0
+    },
+    {
+        "name": "A3Sg2G0",
+        "abb": null,
+        "chemadd": "C92H149N7O68",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2441.0
+    },
+    {
+        "name": "A3Sg2G0F",
+        "abb": null,
+        "chemadd": "C98H159N7O72",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2587.0
+    },
+    {
+        "name": "A3Sg2G1",
+        "abb": null,
+        "chemadd": "C98H159N7O73",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2603.0
+    },
+    {
+        "name": "A3Sg2G1F",
+        "abb": null,
+        "chemadd": "C104H169N7O77",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2749.0
+    },
+    {
+        "name": "A3Sg2S1",
+        "abb": null,
+        "chemadd": "C109H176N8O81",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2894.0
+    },
+    {
+        "name": "A3Sg2S1F",
+        "abb": null,
+        "chemadd": "C155H186N8O85",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3040.0
+    },
+    {
+        "name": "A3Sg3",
+        "abb": null,
+        "chemadd": "C109H176N8O82",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2910.0
+    },
+    {
+        "name": "A3Sg3F",
+        "abb": null,
+        "chemadd": "C115H186N8O86",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3056.0
+    },
+    {
+        "name": "A4G0",
+        "abb": null,
+        "chemadd": "C66H108N6O45",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1705.0
+    },
+    {
+        "name": "A4G0F",
+        "abb": null,
+        "chemadd": "C72H118N6O49",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1851.0
+    },
+    {
+        "name": "A4G1",
+        "abb": null,
+        "chemadd": "C72H118N6O50",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 1867.0
+    },
+    {
+        "name": "A4G1F",
+        "abb": null,
+        "chemadd": "C78H128N6O54",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2013.0
+    },
+    {
+        "name": "A4G2",
+        "abb": null,
+        "chemadd": "C78H128N6O55",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2029.0
+    },
+    {
+        "name": "A4G2F",
+        "abb": null,
+        "chemadd": "C84H138N6O59",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2176.0
+    },
+    {
+        "name": "A4G3",
+        "abb": null,
+        "chemadd": "C84H138N6O60",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2192.0
+    },
+    {
+        "name": "A4G3F",
+        "abb": null,
+        "chemadd": "C90H148N6O64",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2338.0
+    },
+    {
+        "name": "A4G4",
+        "abb": null,
+        "chemadd": "C90H148N6O65",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2354.0
+    },
+    {
+        "name": "A4G4F",
+        "abb": null,
+        "chemadd": "C96H158N6O69",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2500.0
+    },
+    {
+        "name": "A4S1G0",
+        "abb": null,
+        "chemadd": "C83H135N7O58",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2158.0
+    },
+    {
+        "name": "A4S1G0F",
+        "abb": null,
+        "chemadd": "C89H145N7O62",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2305.0
+    },
+    {
+        "name": "A4S1G1",
+        "abb": null,
+        "chemadd": "C89H145N7O63",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2321.0
+    },
+    {
+        "name": "A4S1G1F",
+        "abb": null,
+        "chemadd": "C95H155N7O67",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2467.0
+    },
+    {
+        "name": "A4S1G2",
+        "abb": null,
+        "chemadd": "C95H155N7O68",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2483.0
+    },
+    {
+        "name": "A4S1G2F",
+        "abb": null,
+        "chemadd": "C101H165N7O72",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2629.0
+    },
+    {
+        "name": "A4S1G3",
+        "abb": null,
+        "chemadd": "C101H165N7O73",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2645.0
+    },
+    {
+        "name": "A4S1G3F",
+        "abb": null,
+        "chemadd": "C107H175N7O77",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2791.0
+    },
+    {
+        "name": "A4S2G0",
+        "abb": null,
+        "chemadd": "C100H162N8O71",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2612.0
+    },
+    {
+        "name": "A4S2G0F",
+        "abb": null,
+        "chemadd": "C106H172N8O75",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2758.0
+    },
+    {
+        "name": "A4S2G1",
+        "abb": null,
+        "chemadd": "C106H172N8O76",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2774.0
+    },
+    {
+        "name": "A4S2G1F",
+        "abb": null,
+        "chemadd": "C112H182N8O80",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2920.0
+    },
+    {
+        "name": "A4S2G2",
+        "abb": null,
+        "chemadd": "C112H182N8O81",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2936.0
+    },
+    {
+        "name": "A4S2G2F",
+        "abb": null,
+        "chemadd": "C118H192N8O85",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3082.0
+    },
+    {
+        "name": "A4S3G0",
+        "abb": null,
+        "chemadd": "C117H189N9O84",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3065.0
+    },
+    {
+        "name": "A4S3G0F",
+        "abb": null,
+        "chemadd": "C123H199N9O88",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3211.0
+    },
+    {
+        "name": "A4S3G1",
+        "abb": null,
+        "chemadd": "C123H199N9O89",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3227.0
+    },
+    {
+        "name": "A4S3G1F",
+        "abb": null,
+        "chemadd": "C129H209N9O93",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3374.0
+    },
+    {
+        "name": "A4S4",
+        "abb": null,
+        "chemadd": "C134H216N10O97",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3519.0
+    },
+    {
+        "name": "A4S4F",
+        "abb": null,
+        "chemadd": "C140H226N10O101",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3665.0
+    },
+    {
+        "name": "A4Sg1G0",
+        "abb": null,
+        "chemadd": "C83H135N7O59",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2174.0
+    },
+    {
+        "name": "A4Sg1G0F",
+        "abb": null,
+        "chemadd": "C89H145N7O63",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2321.0
+    },
+    {
+        "name": "A4Sg1G1",
+        "abb": null,
+        "chemadd": "C89H145N7O64",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2337.0
+    },
+    {
+        "name": "A4Sg1G1F",
+        "abb": null,
+        "chemadd": "C95H155N7O68",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2483.0
+    },
+    {
+        "name": "A4Sg1G2",
+        "abb": null,
+        "chemadd": "C95H155N7O69",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2499.0
+    },
+    {
+        "name": "A4Sg1G2F",
+        "abb": null,
+        "chemadd": "C101H165N7O73",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2645.0
+    },
+    {
+        "name": "A4Sg1G3",
+        "abb": null,
+        "chemadd": "C101H165N7O74",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2661.0
+    },
+    {
+        "name": "A4Sg1G3F",
+        "abb": null,
+        "chemadd": "C107H175N7O78",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2807.0
+    },
+    {
+        "name": "A4Sg1S1G0",
+        "abb": null,
+        "chemadd": "C100H162N8O72",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2628.0
+    },
+    {
+        "name": "A4Sg1S1G0F",
+        "abb": null,
+        "chemadd": "C106H172N8O76",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2774.0
+    },
+    {
+        "name": "A4Sg1S1G1",
+        "abb": null,
+        "chemadd": "C106H172N8O77",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2790.0
+    },
+    {
+        "name": "A4Sg1S1G1F",
+        "abb": null,
+        "chemadd": "C112H182N8O81",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2936.0
+    },
+    {
+        "name": "A4Sg1S1G2",
+        "abb": null,
+        "chemadd": "C112H182N8O82",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2952.0
+    },
+    {
+        "name": "A4Sg1S1G2F",
+        "abb": null,
+        "chemadd": "C118H192N8O86",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3098.0
+    },
+    {
+        "name": "A4Sg1S2G0",
+        "abb": null,
+        "chemadd": "C117H189N9O85",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3081.0
+    },
+    {
+        "name": "A4Sg1S2G0F",
+        "abb": null,
+        "chemadd": "C123H199N9O89",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3227.0
+    },
+    {
+        "name": "A4Sg1S2G1",
+        "abb": null,
+        "chemadd": "C123H199N9O90",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3243.0
+    },
+    {
+        "name": "A4Sg1S2G1F",
+        "abb": null,
+        "chemadd": "C129H209N9O94",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3390.0
+    },
+    {
+        "name": "A4Sg1S3",
+        "abb": null,
+        "chemadd": "C134H216N10O98",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3535.0
+    },
+    {
+        "name": "A4Sg1S3F",
+        "abb": null,
+        "chemadd": "C140H226N10O102",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3681.0
+    },
+    {
+        "name": "A4Sg2G0",
+        "abb": null,
+        "chemadd": "C100H162N8O73",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2644.0
+    },
+    {
+        "name": "A4Sg2G0F",
+        "abb": null,
+        "chemadd": "C106H172N8O77",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2790.0
+    },
+    {
+        "name": "A4Sg2G1",
+        "abb": null,
+        "chemadd": "C106H172N8O78",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2806.0
+    },
+    {
+        "name": "A4Sg2G1F",
+        "abb": null,
+        "chemadd": "C112H182N8O82",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2952.0
+    },
+    {
+        "name": "A4Sg2G2",
+        "abb": null,
+        "chemadd": "C112H182N8O83",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 2968.0
+    },
+    {
+        "name": "A4Sg2G2F",
+        "abb": null,
+        "chemadd": "C118H192N8O87",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3114.0
+    },
+    {
+        "name": "A4Sg2S1G0",
+        "abb": null,
+        "chemadd": "C117H189N9O86",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3097.0
+    },
+    {
+        "name": "A4Sg2S1G0F",
+        "abb": null,
+        "chemadd": "C123H199N9O90",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3243.0
+    },
+    {
+        "name": "A4Sg2S1G1",
+        "abb": null,
+        "chemadd": "C123H199N9O91",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3259.0
+    },
+    {
+        "name": "A4Sg2S1G1F",
+        "abb": null,
+        "chemadd": "C129H209N9O95",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3406.0
+    },
+    {
+        "name": "A4Sg2S2",
+        "abb": null,
+        "chemadd": "C134H216N10O99",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3551.0
+    },
+    {
+        "name": "A4Sg2S2F",
+        "abb": null,
+        "chemadd": "C140H226N10O103",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3697.0
+    },
+    {
+        "name": "A4Sg3G0",
+        "abb": null,
+        "chemadd": "C117H189N9O87",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3113.0
+    },
+    {
+        "name": "A4Sg3G0F",
+        "abb": null,
+        "chemadd": "C123H199N9O91",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3259.0
+    },
+    {
+        "name": "A4Sg3G1",
+        "abb": null,
+        "chemadd": "C123H199N9O92",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3275.0
+    },
+    {
+        "name": "A4Sg3G1F",
+        "abb": null,
+        "chemadd": "C129H209N9O96",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3422.0
+    },
+    {
+        "name": "A4Sg3S1",
+        "abb": null,
+        "chemadd": "C134H216N10O100",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3567.0
+    },
+    {
+        "name": "A4Sg3S1F",
+        "abb": null,
+        "chemadd": "C140H226N10O104",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3713.0
+    },
+    {
+        "name": "A4Sg4",
+        "abb": null,
+        "chemadd": "C134H216N10O101",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3583.0
+    },
+    {
+        "name": "A4Sg4F",
+        "abb": null,
+        "chemadd": "C140H226N10O105",
+        "chemsub": null,
+        "type": "Glycan",
+        "mass": 3727.0
+    }
+]

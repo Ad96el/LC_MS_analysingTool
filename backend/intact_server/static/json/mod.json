@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Acetylation",
+        "abb": "Acet",
+        "chemadd": "C2H20",
+        "chemsub": null,
+        "type": "PTM",
+        "mass": 42.04
+    },
+    {
+        "name": "Lysine",
+        "abb": "Lys",
+        "chemadd": "C6H12N2O1",
+        "chemsub": null,
+        "type": "PTM",
+        "mass": 128.17
+    },
+    {
+        "name": "Cysteinylation",
+        "abb": "Cys",
+        "chemadd": "C3H5N1O1S1",
+        "chemsub": null,
+        "type": "PTM",
+        "mass": 119.14
+    },
+    {
+        "name": "Deamidation",
+        "abb": "DeAmid",
+        "chemadd": "OH",
+        "chemsub": "NH2",
+        "type": "PTM",
+        "mass": 0.98
+    },
+    {
+        "name": "Amidation",
+        "abb": "Amid",
+        "chemadd": "NH2",
+        "chemsub": "OH",
+        "type": "PTM",
+        "mass": -0.98
+    },
+    {
+        "name": "Pyroglutamation",
+        "abb": "PyroGlut",
+        "chemadd": null,
+        "chemsub": "NH3",
+        "type": "PTM",
+        "mass": -17.03
+    },
+    {
+        "name": "Ammonia loss",
+        "abb": "NH3Loss",
+        "chemadd": null,
+        "chemsub": "NH3",
+        "type": "PTM",
+        "mass": -17.03
+    },
+    {
+        "name": "Glutathionylation",
+        "abb": "Glutathion",
+        "chemadd": "C10H15N3O6S",
+        "chemsub": null,
+        "type": "PTM",
+        "mass": 305.0
+    },
+    {
+        "name": "Lysine Loss",
+        "abb": "Lys loss",
+        "chemadd": null,
+        "chemsub": "C6H12N2O1",
+        "type": "PTM",
+        "mass": 128.17
+    },
+    {
+        "name": "Carbamidomethylation",
+        "abb": "Cam",
+        "chemadd": "C2H3NO",
+        "chemsub": null,
+        "type": "Chemical",
+        "mass": 57.05
+    },
+    {
+        "name": "Oxidation",
+        "abb": "Oxidation",
+        "chemadd": "O",
+        "chemsub": null,
+        "type": "Chemical",
+        "mass": 16.0
+    },
+    {
+        "name": "Decarboxylation",
+        "abb": "Decarb",
+        "chemadd": null,
+        "chemsub": "CO2",
+        "type": "Chemical",
+        "mass": -44.01
+    },
+    {
+        "name": "Formylation",
+        "abb": "Formyl",
+        "chemadd": "CO",
+        "chemsub": null,
+        "type": "Chemical",
+        "mass": 28.0
+    },
+    {
+        "name": "Glycation",
+        "abb": "Glycation",
+        "chemadd": "C6H10O5",
+        "chemsub": null,
+        "type": "Chemical",
+        "mass": 162.0
+    },
+    {
+        "name": "Water loss",
+        "abb": "H2OLoss",
+        "chemadd": null,
+        "chemsub": "H2O",
+        "type": "Chemical",
+        "mass": -18.0
+    }
+]

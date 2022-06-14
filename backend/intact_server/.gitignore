@@ -4,6 +4,6 @@
 **/*.pyc 
 **/__pycache__/*
 **/__pycache__
-**/static/*
+**/static/2022
 
 .env
