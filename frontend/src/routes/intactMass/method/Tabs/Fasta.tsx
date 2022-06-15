@@ -134,6 +134,7 @@ const FastaTab : React.FC<any> = (props) => {
 
             {translate('resources.routes.method.mass')}
           </Typography>
+          {editable && (
           <Button
             variant="contained"
             color={rows.length > 0 ? 'secondary' : 'primary'}
@@ -145,6 +146,7 @@ const FastaTab : React.FC<any> = (props) => {
           >
             {translate('util.clear')}
           </Button>
+          ) }
           <DataGrid
             disableSelectionOnClick
             rows={rows}

@@ -46,13 +46,13 @@ const SelectOption = (props) => {
   };
 
   const { data } = props;
-
   return (
     <Autocomplete
       multiple
       disableCloseOnSelect
+      options={data.sort((a, b) => b.type.localeCompare(a.type))}
+      groupBy={(option) => option.type}
       onChange={(_, values) => handleSelected(values)}
-      options={data}
       getOptionDisabled={(a) => selectionDisabled[a.type]}
       getOptionLabel={(option : Types.MethodSet.method) => option.name}
       renderInput={(params) => <TextField {...params} label={translate('resources.routes.methodset.possibleMethod')} />}

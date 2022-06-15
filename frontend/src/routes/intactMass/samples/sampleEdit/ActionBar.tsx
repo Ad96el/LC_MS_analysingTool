@@ -5,7 +5,6 @@ import {
   Record,
 } from 'ra-core';
 import React from 'react';
-import { ShowButton } from 'react-admin';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { changeSample } from 'reducer/actions';
@@ -60,7 +59,7 @@ const AutoCompleteOptions : React.FC<AutoCompleteOptionsI> = ({ sid, id }) => {
   );
 };
 
-const EditActions : React.FC<any> = ({ basePath, data }) => {
+const EditActions : React.FC<any> = ({ data }) => {
   if (!data) {
     return <div />;
   }
@@ -72,10 +71,7 @@ const EditActions : React.FC<any> = ({ basePath, data }) => {
         <Box p={1} style={{ paddingLeft: 0 }} flexGrow={1}>
           <AutoCompleteOptions id={id} sid={sid} />
         </Box>
-        <Box m={0} p={3} style={{ paddingRight: 0, paddingBottom: 0 }}>
-          <ShowButton basePath={basePath} record={data} />
-
-        </Box>
+        <Box m={0} p={3} style={{ paddingRight: 0, paddingBottom: 0 }} />
       </Box>
 
     </div>

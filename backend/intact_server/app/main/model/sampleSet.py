@@ -10,6 +10,7 @@ class SampleSet(db.Model):
     """ sample set Model for storing sample set related details """
     __tablename__ = "sample_set"
 
+    blocked = False
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     created = db.Column(db.DateTime, nullable=False)
     system_name = db.Column(db.String(255), nullable=False)
@@ -41,4 +42,5 @@ class SampleSet(db.Model):
         out["user"] = self.user.as_dict() if self.user else None
         out["samples"] = [x.id for x in self.samples]
         out["rsid"] = self.result_set.id if self.result_set else None
+        out["blocked"] = self.blocked
         return out

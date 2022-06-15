@@ -12,6 +12,7 @@ import {
   Typography, Accordion, AccordionSummary, AccordionDetails,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import RemoveIcon from '@material-ui/icons/Remove';
 // own libs
 import { MethodSet } from 'types';
 import { CalculationForm, TypeSelect } from 'components';
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
     position: 'relative',
   },
   fab: {
-    right: 10,
+    right: 40,
     bottom: 10,
     position: 'absolute',
   },
@@ -92,6 +93,13 @@ const SampleTable : React.FC<any> = (props) => {
     setRows(upd);
     onChange({ components: upd, calculations: state });
     count += 1;
+  };
+
+  const remove = (id: number) => {
+    const upd = [...rows];
+    const index = upd.findIndex((value) => value.id === id);
+    upd.splice(index, 1);
+    setRows(upd);
   };
 
   const handleChangeType = (event, row) => {
@@ -162,6 +170,25 @@ const SampleTable : React.FC<any> = (props) => {
             row={row}
             editable={editable}
           />
+        );
+      },
+    },
+    {
+      field: 'action',
+      headerName: ' ',
+      flex: 500,
+      renderCell: (params: GridCellParams) => {
+        const { row } = params;
+        return (
+          <Fab
+            size="small"
+            color="secondary"
+            aria-label="remove"
+            onClick={() => remove(row.id)}
+            style={{ marginLeft: 'auto', marginRight: 'auto' }}
+          >
+            <RemoveIcon />
+          </Fab>
         );
       },
     },

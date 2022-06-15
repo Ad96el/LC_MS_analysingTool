@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   List, Datagrid, TextField, ListProps, EditButton, DeleteButton, DateField, ReferenceInput,
-  useTranslate, FunctionField, TextInput, Filter, ReferenceField, DateInput, ShowButton,
+  useTranslate, FunctionField, TextInput, Filter, ReferenceField, DateInput,
 
   AutocompleteInput,
 } from 'react-admin';
@@ -54,8 +54,6 @@ const SampleList : React.FC<ListProps> = ({ permissions, ...props }) => {
             ) : 'None'
           )}
         />
-
-        <ShowButton />
         {permissions > 0 && <EditButton />}
         {permissions > 1 && <DeleteButton undoable={false} />}
       </Datagrid>

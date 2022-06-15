@@ -7,13 +7,16 @@ import {
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { ColorInput } from 'react-admin-color-input';
 import Link from '@material-ui/core/Link';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { GetListParams, PaginationPayload, SortPayload } from 'ra-core';
 // own libs
 import { useHistory } from 'react-router';
+import dataProvider from 'dataProvider';
 import {
   Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText, Button,
 } from '@material-ui/core';
 import { ToolBarLight, NavigationHeader } from 'components';
-import dataProvider from 'dataProvider';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Types from 'types';
 import { prepareResultsCreation } from 'reducer/actions';
@@ -29,6 +32,54 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 }));
 
+const MethodSetEdit = (props) => {
+  const translate = useTranslate();
+  const [selectedMethodSet, setSelectedMethodSet] = React.useState<any>({ id: '-1', name: '' });
+  const [options, setOptions] = React.useState<Types.MethodSet.medotSet[]>([]);
+
+  // updates the changes.
+  const handleChange = async (value: Types.MethodSet.medotSet) => {
+    if (value.id === '-1') { return; }
+    const newData = props.record;
+    newData.methodset = value;
+    newData.msid = value.id;
+    const params = {
+      id: props.record.id,
+      data: newData,
+      previousData: props.record,
+    };
+    await dataProvider.update('sample', params);
+    setSelectedMethodSet(value);
+    window.location.reload();
+  };
+
+  // init the selected methods
+  React.useEffect(() => {
+    const pagination : PaginationPayload = { page: 1, perPage: 250 };
+    const sort : SortPayload = { field: 'id', order: 'ASC' };
+    const filter = {};
+    const params : GetListParams = {
+      pagination, sort, filter,
+    };
+    setSelectedMethodSet(props.record.methodset);
+    dataProvider.getList<Types.MethodSet.medotSet>('methodset', params).then((response) => {
+      setOptions(response.data);
+    });
+  }, [props]);
+
+  return (
+    <Autocomplete
+      value={selectedMethodSet}
+      onChange={(_, values) => handleChange(values)}
+      options={options}
+      getOptionDisabled={(a) => a.id === selectedMethodSet.id}
+      getOptionSelected={(a, b) => a.id === b.id}
+      getOptionLabel={(option) => option.name}
+      renderInput={(params) => <TextField {...params} label={translate('resources.routes.methodset.possibleMethod')} />}
+    />
+  );
+};
+
 const SampleEdit : React.FC<EditProps> = (props) => {
   const translate = useTranslate();
   const dispatch = useDispatch();
@@ -43,7 +94,6 @@ const SampleEdit : React.FC<EditProps> = (props) => {
   const [updateData, setUpdateData] = React.useState<Partial<Record> | undefined>(undefined);
   const option = useSelector((state : Types.AppState) => state.data.samples);
 
-  // tracks changes. if peaks are.
   React.useEffect(() => {
     const updValue : any = { ...peaks };
     updValue.tics = tics;
@@ -83,7 +133,7 @@ const SampleEdit : React.FC<EditProps> = (props) => {
       } else if (type === 'createsave') {
         const apiCalls : Promise<any> [] = [];
         apiCalls.push(dataProvider.update('sample', params));
-        createResult.forEach((obj) => {
+        createResult.filter((obj) => obj.id === props.id).forEach((obj) => {
           const createParam : CreateParams = { data: obj };
           apiCalls.push(dataProvider.create('result', createParam));
         });
@@ -166,8 +216,8 @@ const SampleEdit : React.FC<EditProps> = (props) => {
           handleSubmitWithRedirect
           submitOnEnter={false}
           syncWithLocation={false}
-          save={(data) => handleSave(data, 'open')}
-          toolbar={<ToolBarLight disabled={loading} />}
+          save={(data) => handleSave(data, 'createsave')}
+          toolbar={<ToolBarLight create disabled={loading} />}
         >
           <FormTab label={translate('resources.routes.sample.meta')} variant="standard">
             <FunctionField
@@ -189,10 +239,7 @@ const SampleEdit : React.FC<EditProps> = (props) => {
                 ) : 'None'
               )}
             />
-            <FunctionField
-              label={translate('resources.routes.sample.methodset')}
-              render={(record) => (record.methodset.name ? record.methodset.name : 'None')}
-            />
+
             <TextInput
               source="type"
               label={translate('resources.routes.sample.type')}
@@ -203,6 +250,7 @@ const SampleEdit : React.FC<EditProps> = (props) => {
               label={translate('resources.routes.sample.sample')}
               validate={required()}
             />
+            <MethodSetEdit />
 
             <ColorInput
               source="color"

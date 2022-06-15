@@ -87,7 +87,8 @@ const SelectOption = (props) => {
       value={selected}
       getOptionDisabled={(a) => selectionDisabled[a.type]}
       onChange={(_, values) => handleChange(values)}
-      options={data}
+      options={data.sort((a, b) => b.type.localeCompare(a.type))}
+      groupBy={(option) => option.type}
       getOptionSelected={(a, b) => a.id === b.id}
       getOptionLabel={(option : Types.MethodSet.method) => option.name}
       renderInput={(params) => <TextField {...params} label={translate('resources.routes.methodset.possibleMethod')} />}

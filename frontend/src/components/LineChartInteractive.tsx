@@ -330,7 +330,7 @@ const Chart : React.FC<GraphI> = ({
       <div className={classes.Chart}>
         {loading ? (
           <div style={{
-            height: window.innerHeight * 0.45,
+            height: half ? 500 : window.innerHeight * 0.45,
             marginLeft: window.innerWidth * (half ? 0.2 : 0.4),
           }}
           >
@@ -338,7 +338,7 @@ const Chart : React.FC<GraphI> = ({
           </div>
         ) : (
           <>
-            <div style={{ height: window.innerHeight * 0.58 }} ref={ref}>
+            <div style={{ height: half ? 500 : window.innerHeight * 0.58 }} ref={ref}>
               <ResponsiveContainer height={half ? 550 : window.innerHeight * 0.56} width="95%">
                 <LineChart
                   width={width}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { SaveButton } from 'react-admin';
+import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles(() => createStyles({
 
@@ -20,15 +21,20 @@ const useStyles = makeStyles(() => createStyles({
 
 interface ToolBarLightI {
   [key: string]: any,
-  disabled?: boolean
+  disabled?: boolean,
+  create?: boolean,
 }
 
-const ToolBarLight: React.FC<ToolBarLightI> = ({ disabled = false, ...props }) => {
+const ToolBarLight: React.FC<ToolBarLightI> = ({ disabled = false, create = false, ...props }) => {
   const classes = useStyles();
   return (
     <div className={classes.light}>
-
-      <SaveButton disabled={disabled} {...props} />
+      {!create && <SaveButton disabled={disabled} {...props} />}
+      {create && (
+      <>
+        <SaveButton disabled={disabled} {...props} label="create" icon={<AddIcon />} />
+      </ >
+      ) }
     </div>
   );
 };

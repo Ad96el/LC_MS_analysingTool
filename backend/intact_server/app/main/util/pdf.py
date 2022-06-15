@@ -108,9 +108,14 @@ class PDF (FPDF):
         self.cell(w=210, h=30, align="", txt="Error", border=0)
         self.set_font("Times", "", 12)
         for indexRow, peak in enumerate(peaks):
+            if(indexRow > 5):
+                self.set_xy(10, 190 + (indexRow + 1) * 10)
+                self.cell(w=210, h=10, align="", txt="...", border=0)
+                break
             keys = peak.keys()
             x = 10
             for index, key in enumerate(keys):
+
                 if(key == "id" or key == "glyco" or key == "specToPeak" or key == "modificationQuantity"):
                     continue
                 if(index == 0):

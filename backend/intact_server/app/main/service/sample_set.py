@@ -8,6 +8,7 @@ from http import HTTPStatus
 from app.main.util.utils import check_permissions, dataBaseDelete, dataBaseSave, dataBaseUpdate, pagination, validate_uuid4
 from .user import get_user
 from app.main.util import messages
+from app.main.service import blocked_sample_sets
 
 
 def get_sampleSet(sid: str) -> SampleSet:
@@ -15,6 +16,7 @@ def get_sampleSet(sid: str) -> SampleSet:
     sampleSet = SampleSet.query.filter_by(id=sid).first()
     if(not sampleSet):
         abort(HTTPStatus.NOT_FOUND, description=messages.ERROR_NOT_EXIT + sid)
+    sampleSet.blocked = str(sampleSet.id) in blocked_sample_sets
     return sampleSet
 
 
@@ -23,8 +25,9 @@ def get_sampleSetList(filter: Dict[str, str], sort: List[str], range: List[int])
     samplesets = pagination(sort, filter, range, SampleSet, query)
     rows = query.count()
     out = []
-    for sampleset in samplesets:
-        out.append(sampleset.as_dict())
+    for sampleset in samplesets:  
+        sampleset.blocked = str(sampleset.id) in blocked_sample_sets 
+        out.append(sampleset.as_dict()) 
     return out, rows
 
 

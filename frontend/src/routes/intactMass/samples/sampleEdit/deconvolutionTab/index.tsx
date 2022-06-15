@@ -118,7 +118,6 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
     const { row } = params;
     return (
       <>
-
         <Button disabled={loading} size="small" color="secondary" variant="contained" onClick={() => onClick(row)} style={{ marginRight: '1em' }}>
           <VisibilityIcon fontSize="small" />
         </Button>
@@ -207,7 +206,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
             />
           </Box>
         </Box>
-        <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em' }}>
+        <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em', marginTop: '2em' }}>
           {translate('resources.routes.sample.tabledeconpeak')}
         </Typography>
         <div style={{
@@ -219,7 +218,7 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
             pageSize={10}
             loading={loading}
             columns={columns}
-            style={{ margin: '1em' }}
+            style={{ margin: '1em', overflowX: 'hidden' }}
             disableSelectionOnClick
             components={{
               Toolbar: GridToolbar,

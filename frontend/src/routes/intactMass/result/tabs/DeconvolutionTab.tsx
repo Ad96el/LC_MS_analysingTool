@@ -155,14 +155,13 @@ const PeakSelectionTab : React.FC<any> = ({ record }) => {
             />
           </Box>
         </Box>
-        <Typography variant="h5" color="textSecondary">
+        <Typography variant="h5" color="textSecondary" style={{ marginLeft: '1em', marginTop: '2em' }}>
           {translate('resources.routes.sample.tabledeconpeak')}
         </Typography>
         <div style={{ height: window.innerHeight * 0.55, margin: '1em', width: '98%' }}>
           <DataGrid
             rows={data ? data?.peaks : []}
             pageSize={10}
-            style={{ margin: '1em' }}
             disableSelectionOnClick
             columns={columns}
             components={{

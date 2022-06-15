@@ -120,6 +120,7 @@ sample_set = Model("sample_set", {
     'system_name': fields.String(required=True),
     'user': fields.Nested(user),
     'created': fields.DateTime(required=True, dt_format="iso8601"),
+    'blocked' : fields.Boolean(required=True)
 })
 
 version = Model("version", {

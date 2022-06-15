@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   margin: {
     marginTop: theme.spacing(1),
     padding: theme.spacing(1),
-    minHeight: window.innerHeight * 0.5,
   },
   root: { width: '100%' },
 }));
@@ -106,18 +105,23 @@ const PeakSelectionTab : React.FC<any> = ({ record }) => {
         </Box>
         <Box>
           <Box display="flex" p={1}>
-            <Box p={1} flexGrow={1} style={{ height: '100%', width: '60%' }}>
+            <Box
+              p={1}
+              flexGrow={1}
+              style={{
+                height: '100%', width: '60%', marginTop: '1em',
+              }}
+            >
               <Typography variant="h5" color="textSecondary">
 
                 {translate('resources.routes.sample.detectpeak')}
               </Typography>
-              <div style={{ height: 550, width: '100%', margin: 1 }}>
+              <div style={{ height: 550, width: '100%', marginTop: '1em' }}>
                 <DataGrid
                   disableSelectionOnClick
                   rows={peak}
                   pageSize={10}
                   columns={columns}
-                  style={{ margin: '1em' }}
                   components={{
                     Toolbar: GridToolbar,
                   }}

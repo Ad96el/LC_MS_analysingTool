@@ -42,8 +42,7 @@ def create_app(configType: str):
     app = Flask(__name__)
 
     state = configType if type(configType) == str else "development"
-    app.config.from_object(app_config[state])
-    print(app_config[state], state )
+    app.config.from_object(app_config[state]) 
 
     # add cors
     CORS(app, resources={r"/*": {"origins": "*"}})

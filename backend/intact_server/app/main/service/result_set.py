@@ -12,7 +12,7 @@ from app.main.model.sampleSet import SampleSet
 from app.main.service.sample import all_peak, get_deconvolution_data
 from app.main.service.sample_set import get_sampleSet
 from app.main.service.results import create_result, delete_result, edit_result
-
+from app.main.service import blocked_sample_sets
 
 def get_result_set(rid: str) -> ResultSet:
     """
@@ -69,8 +69,7 @@ def edit_result_set(sampleSet: SampleSet, uid: str):
         # A Sample has no result -> create one
         else:
             result = create_result(data["peaks"]["data"], data["tics"], uid, str(sample.id), single=True)
-            if(result):
-                updatedResults.append(result)
+            updatedResults.append(result)
     dataBaseSave(updatedResults)
     new_result_set = ResultSet(old_result_set.name, user, old_result_set.vid, sampleSet, updatedResults)
     new_result_set.version = updateVersion(old_result_set.version)
@@ -83,7 +82,6 @@ def create_result_Set(sid: str, uid: str, kind: str) -> ResultSet:
     """
     creates a new result set. 
     If Kind is all, for every sample in the sampleset a result is created
-
     if there is a result set -> update it
     if there is no result set -> create it
     """
@@ -92,7 +90,7 @@ def create_result_Set(sid: str, uid: str, kind: str) -> ResultSet:
     check_permissions(user.role, messages.USER_PERMISSION)
 
     sampleSet = get_sampleSet(sid)
-
+    blocked_sample_sets.append(sid)
     if(sampleSet.result_set):
         resultSet = edit_result_set(sampleSet, uid)
     else:
@@ -107,7 +105,7 @@ def create_result_Set(sid: str, uid: str, kind: str) -> ResultSet:
 
         resultSet = ResultSet(sampleSet.name + "_result", user, create_uuid4(), sampleSet, results)
         dataBaseSave(resultSet)
-
+    blocked_sample_sets.remove(sid)
     return resultSet
 
 
@@ -131,7 +129,7 @@ def delete_result_set(id: str, uid: str):
         delete_result(str(result[0].id), uid)
 
     to_delete_result_sets = get_result_set_by_vid(str(resultSet.id))
-
+ 
     # delete all result sets
     for to_delete in to_delete_result_sets:
         delete = get_result_set(to_delete["id"])
