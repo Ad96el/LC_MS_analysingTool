@@ -173,7 +173,9 @@ const ResultView = ({ data } : dataI) : React.ReactElement => {
               { `2 * ${mod.diffLight} + 2 * ${mod.diffHeavy} ≈ ${mod.diffD}`}
               <br />
               <div style={{ color: '#4f3cc9' }}>
-                Expected Error founds. Modification are valid. Analyzis are valid.
+                With a tolerance of 0.01%: Expected Error founds.
+                <br />
+                Modification are valid. Analyzis are valid.
               </div>
 
             </>

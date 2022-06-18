@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => createStyles({
   },
   img: {
     flexDirection: 'column',
-    maxHeight: 400,
+    maxHeight: 300,
   },
 
 }));
@@ -145,7 +145,7 @@ const CombinePage = () : React.ReactElement => {
             <Button
               variant="outlined"
               color="primary"
-              style={{ marginTop: 80 }}
+              style={{ marginTop: 150 }}
               onClick={submit}
             >
               {translate('resources.routes.resultset.submit')}
