@@ -126,7 +126,7 @@ def get_peaks(id: str, tics=None, sample=None):
                 rawReader = ThermoRawReader(sample.file)
                 tics = rawReader.getTIC()
                 tics.columns = ["x", "y"]
-            peaks, _ = detect_peak(
+            peaks, window = detect_peak(
                 tics, calculations["pickingHeight"],
                 calculations["absThreshold"],
                 calculations["relThreshold"],
@@ -139,9 +139,9 @@ def get_peaks(id: str, tics=None, sample=None):
             return {"id": id,
                     "data": [
                         {"rtPeak": round(x, 2),
-                         "start": round(x-0.5, 2),
-                         "end": round(x+0.5, 2),
-                         "id": str(create_uuid4())} for x in peaks]}
+                         "start": window[index][0],
+                         "end": window[index][1],
+                         "id": str(create_uuid4())} for index, x in enumerate(peaks)]}
 
     abort(400, description=messages.ERROR_PEAK)
 

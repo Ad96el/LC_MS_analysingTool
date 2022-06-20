@@ -27,6 +27,7 @@ class Result_id(Resource):
 
     @app.marshal_with(result)
     @app.doc(description="get result by id")
+    @jwt_required()
     def get(self, id):
         out = get_result(id)
         return marshal(out.as_dict(), result)
@@ -71,6 +72,7 @@ class Result(Resource):
 
     @app.doc(description="get all result")
     @app.marshal_list_with(result)
+    @jwt_required()
     def get(self):
         filter_value = request.args.get("filter")
         range_value = request.args.get("range")
@@ -87,6 +89,7 @@ class Result(Resource):
 class Result_Version(Resource):
     @app.doc(description="get all versions")
     @app.marshal_list_with(version)
+    @jwt_required()
     def get(self, id):
         out = get_result_by_vid(id)
         return marshal(out, version)
@@ -95,6 +98,7 @@ class Result_Version(Resource):
 @app.route('/pdfview/<id>')
 class PdfCreation(Resource):
     @app.doc(description="Generates a pdf from the passed id")
+    @jwt_required()
     def get(self, id):
         encodedString = createResultPdf(id)
         return {"pdfb64": encodedString.decode("UTF-8")}

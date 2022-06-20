@@ -24,6 +24,7 @@ app = Namespace("project", description="Controller for projects")
 class Project_id(Resource):
     @app.marshal_with(project)
     @app.doc(description="get a singe project by id")
+    @jwt_required()
     def get(self, id):
         out = get_project(id)
         return marshal(out.as_dict(), project)
@@ -57,6 +58,7 @@ class Project_List(Resource):
                      "sort": '["field": "which field", "order": "order of the sort"]',
                      "filter": "filter over column"})
     @app.marshal_list_with(project)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")

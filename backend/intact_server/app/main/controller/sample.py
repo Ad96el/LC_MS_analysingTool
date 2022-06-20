@@ -29,6 +29,7 @@ class Sample_id(Resource):
 
     @app.marshal_with(sample)
     @app.doc(description="get sample by id")
+    @jwt_required()
     def get(self, id):
         out = get_sample(id)
         return marshal(out.as_dict(), sample)
@@ -72,6 +73,7 @@ class Sample(Resource):
 
     @app.doc(description="get all samples")
     @app.marshal_list_with(sample)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")
@@ -87,6 +89,7 @@ class Sample(Resource):
 @app.route('/values')
 class Sample_values(Resource):
     @app.doc(description="get the peak and tic values for the sample")
+    @jwt_required()
     def get(self):
         kind = request.args.get("kind")
         id = request.args.get("id")

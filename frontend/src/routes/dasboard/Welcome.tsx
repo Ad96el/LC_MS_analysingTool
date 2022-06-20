@@ -65,10 +65,10 @@ const Welcome: FC = () => {
             </Button>
             <Button
               variant="contained"
-              onClick={() => { window.open(`http://${window.location.hostname}/api/v1`, '_blank'); }}
+              onClick={() => { window.open('https://github.com/Ad96el/LC_MS_analysingTool', '_blank'); }}
               startIcon={<CodeIcon />}
             >
-              {translate('pos.dashboard.welcome.other')}
+              Documentation
             </Button>
           </CardActions>
         </Box>

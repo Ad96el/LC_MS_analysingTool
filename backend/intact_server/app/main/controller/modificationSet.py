@@ -25,6 +25,7 @@ class Modification_Set(Resource):
                      "sort": '["field": "which field", "order": "order of the sort"]',
                      "filter": "filter over column"})
     @app.marshal_list_with(modification_set)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")
@@ -56,6 +57,7 @@ class Modification_set_id(Resource):
 
     @app.doc(description="returns a modification set from id")
     @app.marshal_with(modification_set)
+    @jwt_required()
     def get(self, id):
         out = get_modification_set(id)
         return marshal(out, modification_set)

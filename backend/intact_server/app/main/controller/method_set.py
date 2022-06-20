@@ -38,6 +38,7 @@ class MethodSet(Resource):
 
     @app.doc(description="returns all method lists")
     @app.marshal_list_with(method_set)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")
@@ -69,6 +70,7 @@ class MethodSet(Resource):
     @app.param('id', 'The method set identifier')
     @app.doc(description="get a method set by id")
     @app.marshal_with(method_set)
+    @jwt_required()
     def get(self, id):
         out = get_methodset(id)
         return marshal(out, method_set)
@@ -86,6 +88,7 @@ class MethodSet(Resource):
 class MethodSet_version(Resource):
     @app.doc(description="get all versions")
     @app.marshal_list_with(version)
+    @jwt_required()
     def get(self, id):
         out = get_methodset_by_vid(id)
         return marshal(out, version)

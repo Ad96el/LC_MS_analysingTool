@@ -21,6 +21,7 @@ app = Namespace("sample_set", description="Controller for the sample sets")
 class Sample_id(Resource):
     @app.doc(description="get sample set by id")
     @app.marshal_with(sample_set)
+    @jwt_required()
     def get(self, id):
         out = get_sampleSet(id)
         return marshal(out, sample_set)
@@ -55,6 +56,7 @@ class Sample_list(Resource):
                      "sort": '["field": "which field", "order": "order of the sort"]',
                      "filter": "filter over column"})
     @app.marshal_list_with(sample_set)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")

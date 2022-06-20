@@ -23,6 +23,7 @@ app = Namespace("resultset", description="Controller for result sets")
 class Result_id(Resource):
 
     @app.marshal_with(resultSet)
+    @jwt_required()
     @app.doc(description="get result set by id")
     def get(self, id):
         out = get_result_set(id)
@@ -53,6 +54,7 @@ class Result(Resource):
 
     @app.doc(description="get all result sets")
     @app.marshal_list_with(resultSet)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")
@@ -69,6 +71,7 @@ class Result(Resource):
 class ResultSet_Version(Resource):
     @app.doc(description="get all versions")
     @app.marshal_list_with(version)
+    @jwt_required()
     def get(self, id):
         out = get_result_set_by_vid(id)
         return marshal(out, version)

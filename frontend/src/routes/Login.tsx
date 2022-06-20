@@ -152,10 +152,6 @@ export default function SignInSide() : React.ReactElement {
     }
   };
 
-  const handleGuest = () => {
-    Login({ email: null, password: null });
-  };
-
   const handleSignUp = () => {
     if (!emailSignup || !passwordSingUp || !passwordSingUpConformation) {
       notify('no email or password provided', 'warning');
@@ -364,14 +360,6 @@ export default function SignInSide() : React.ReactElement {
                   onClick={handleLogin}
                 >
                   Sign In
-                </Button>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="secondary"
-                  onClick={handleGuest}
-                >
-                  Continue as Guest
                 </Button>
               </form>
               <Box display="flex">

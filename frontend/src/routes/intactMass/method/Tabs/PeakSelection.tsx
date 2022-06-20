@@ -53,7 +53,7 @@ const SampleTable : React.FC<any> = (props) => {
   const [rows, setRows] = React.useState<MethodSet.ComponentI[]>([]);
   const [state, setState] = React.useState({
     pickingHeight: 0.75,
-    absThreshold: 0,
+    absThreshold: 2,
     relThreshold: 0,
     snThreshold: 0,
     baselineWindow: 0.1,

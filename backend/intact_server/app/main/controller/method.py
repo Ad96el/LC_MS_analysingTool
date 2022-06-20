@@ -27,6 +27,7 @@ class Method(Resource):
                      "sort": '["field": "which field", "order": "order of the sort"]',
                      "filter": "filter over column"})
     @app.marshal_list_with(method)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")
@@ -59,6 +60,7 @@ class Method_id(Resource):
 
     @app.doc(description="returns a method from id")
     @app.marshal_with(method)
+    @jwt_required()
     def get(self, id):
         out = get_method(id)
         return marshal(out, method)
@@ -89,6 +91,7 @@ class Method_id(Resource):
 class Method_version(Resource):
     @app.doc(description="get all versions")
     @app.marshal_list_with(version)
+    @jwt_required()
     def get(self, id):
         out = get_method_by_vid(id)
         return marshal(out, version)
@@ -98,6 +101,7 @@ class Method_version(Resource):
 class Method_Methodset(Resource):
     @app.doc(description="get all versions")
     @app.marshal_list_with(method)
+    @jwt_required()
     def get(self, id):
         out = get_method_by_msid(id)
         return marshal(out, method)

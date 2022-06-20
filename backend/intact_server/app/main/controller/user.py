@@ -43,6 +43,7 @@ class User_singUp(Resource):
 class Users(Resource):
     @app.doc(description="Return all users")
     @app.marshal_with(user)
+    @jwt_required()
     def get(self):
         filter = request.args.get("filter")
         range = request.args.get("range")
