@@ -72,7 +72,7 @@ const SampleCreate : React.FC<CreateProps> = (props) => {
                 reference="sampleset"
                 validate={[required()]}
                 className={classes.TextInput}
-                variant="standard"
+                variant="outlined"
                 defaultValue={defaultValue}
               >
                 <SelectInput optionText="name" label={translate('resources.routes.sample.name')} />

@@ -10,7 +10,7 @@ import * as Types from 'types';
 
 const useStyles = makeStyles({
   TextInput: {
-    width: '400px',
+    width: '100%',
   },
   fullWidth: {
     width: '100%',
@@ -63,7 +63,6 @@ const TransferListWrapper = (props) => {
           />
         </Box>
         <Box sx={{ p: 1 }}>
-          {' '}
           <TransferList
             options={availableOptionsGlyco}
             selected={selectedGlyco}
@@ -104,7 +103,7 @@ const ModificationSetCreate : React.FC<CreateProps> = (props) => {
   return (
     <Create {...props}>
       <SimpleForm toolbar={<ToolBarLight />} redirect="list" variant="outlined">
-        <TextInput source="name" label={translate('resources.routes.modificationset.name')} className={classes.TextInput} validate={required()} />
+        <TextInput source="name" label={translate('resources.routes.modificationset.name')} fullWidth className={classes.TextInput} validate={required()} />
         <TransferListWrapper source="modifications" data={options} {...props} />
       </SimpleForm>
     </Create>

@@ -25,6 +25,7 @@ const useStyles = makeStyles(() => createStyles({
   img: {
     flexDirection: 'column',
     maxHeight: 300,
+    margin: '3em',
   },
 
 }));
@@ -116,10 +117,14 @@ const CombinePage = () : React.ReactElement => {
         && (
         <>
           <Typography variant="h4" style={{ textAlign: 'center', margin: '1em' }}>{translate('resources.routes.resultset.combine')}</Typography>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+
+          <div style={{
+            display: 'flex', flexDirection: 'row', justifyContent: 'center',
+          }}
+          >
             {Object.keys(selectedResulsts).map((i) => (
               <div className={classes.img}>
-                <img src={selectedResulsts[i].fig} alt="" />
+                <img src={selectedResulsts[i].fig} alt="" style={{ height: 300, width: i === 'R' || i === 'DR' ? 150 : 300 }} />
                 <Autocomplete
                   onChange={(_, values) => handleSelected(i, values)}
                   options={results}
@@ -127,7 +132,7 @@ const CombinePage = () : React.ReactElement => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      style={{ marginTop: '1em', width: 400 }}
+                      style={{ marginTop: '1em', width: 300 }}
                       variant="outlined"
                       label={translate('resources.routes.resultset.possibleResults')}
                     />

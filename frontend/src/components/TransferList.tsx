@@ -4,8 +4,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
@@ -138,6 +138,7 @@ const TransferList : React.FC<TransferListI> = ({
                 <ListItemIcon>
                   <Checkbox
                     checked={checked.indexOf(value) !== -1}
+                    color="primary"
                     tabIndex={-1}
                     inputProps={{
                       'aria-labelledby': labelId,
@@ -162,42 +163,46 @@ const TransferList : React.FC<TransferListI> = ({
       <Grid item>
         <Grid container direction="column" alignItems="center">
           <Button
-            sx={{ my: 0.5 }}
+            style={{ marginTop: '5px', marginBottom: '5px' }}
             variant="outlined"
             size="small"
             onClick={handleAllRight}
             disabled={left.length === 0}
             aria-label="move all right"
+            color="primary"
           >
             ≫
           </Button>
           <Button
-            sx={{ my: 0.5 }}
+            style={{ marginTop: '5px', marginBottom: '5px' }}
             variant="outlined"
             size="small"
             onClick={handleCheckedRight}
             disabled={leftChecked.length === 0}
             aria-label="move selected right"
+            color="primary"
           >
             &gt;
           </Button>
           <Button
-            sx={{ my: 0.5 }}
+            style={{ marginTop: '5px', marginBottom: '5px' }}
             variant="outlined"
             size="small"
             onClick={handleCheckedLeft}
             disabled={rightChecked.length === 0}
             aria-label="move selected left"
+            color="primary"
           >
             &lt;
           </Button>
           <Button
-            sx={{ my: 0.5 }}
+            style={{ marginTop: '5px', marginBottom: '5px' }}
             variant="outlined"
             size="small"
             onClick={handleAllLeft}
             disabled={right.length === 0}
             aria-label="move all left"
+            color="primary"
           >
             ≪
           </Button>

@@ -72,7 +72,7 @@ const SampleSetEdit : React.FC<EditProps> = ({ ...props }) => {
               render={(record) => `${record.user ? record.user.email : ''} `}
             />
             <DateInput className={classes.TextInput} source="created" label={translate('resources.routes.sampleset.created')} disabled />
-            <ReferenceInput className={classes.TextInput} label={translate('resources.routes.sampleset.project')} reference="project" source="pid" link="show" variant="standard">
+            <ReferenceInput className={classes.TextInput} label={translate('resources.routes.sampleset.project')} reference="project" source="pid" link="show" variant="outlined">
               <SelectInput source="name" validate={required()} disabled={loading} />
             </ReferenceInput>
 

@@ -20,12 +20,12 @@ const SampleSetCreate : React.FC<CreateProps> = (props) => {
   return (
     <Create {...props}>
       <SimpleForm toolbar={<ToolBarLight />} redirect="list" variant="outlined">
-        <TextInput source="name" label={translate('name')} className={classes.TextInput} validate={required()} />
-        <TextInput source="system_name" label={translate('system_name')} className={classes.TextInput} validate={required()} />
-        <ReferenceInput label="Project" source="pid" reference="project" validate={[required()]} className={classes.TextInput} variant="standard">
+        <TextInput source="name" label={translate('resources.routes.sampleset.name')} className={classes.TextInput} validate={required()} />
+        <TextInput source="system_name" label={translate('resources.routes.sampleset.system_name')} className={classes.TextInput} validate={required()} />
+        <ReferenceInput label={translate('resources.routes.sampleset.project')} source="pid" reference="project" validate={[required()]} className={classes.TextInput} variant="outlined">
           <SelectInput optionText="name" label={translate('name')} />
         </ReferenceInput>
-        <TextInput source="descr" fullWidth multiline label={translate('descr')} validate={required()} />
+        <TextInput source="descr" fullWidth multiline label={translate('resources.routes.sampleset.descr')} validate={required()} />
 
       </SimpleForm>
     </Create>
