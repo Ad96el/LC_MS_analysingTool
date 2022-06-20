@@ -52,8 +52,11 @@ const TransferListWrapper = (props) => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', p: 1 }}>
-        <Box sx={{ p: 1, flexGrow: 1 }}>
+      <div style={{
+        display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '1em',
+      }}
+      >
+        <div style={{ marginRight: '1em' }}>
           <TransferList
             options={availableOptionsMod}
             selected={selectedModification}
@@ -61,8 +64,8 @@ const TransferListWrapper = (props) => {
             leftTitle={translate('resources.routes.modificationset.selectedMod')}
             rightTitle={translate('resources.routes.modificationset.avalMod')}
           />
-        </Box>
-        <Box sx={{ p: 1 }}>
+        </div>
+        <div>
           <TransferList
             options={availableOptionsGlyco}
             selected={selectedGlyco}
@@ -70,10 +73,8 @@ const TransferListWrapper = (props) => {
             leftTitle={translate('resources.routes.modificationset.selectedGlyco')}
             rightTitle={translate('resources.routes.modificationset.avalGlyco')}
           />
-
-        </Box>
-
-      </Box>
+        </div>
+      </div>
 
     </>
 
