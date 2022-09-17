@@ -1,11 +1,11 @@
 {
   "name": "lonza-frontend",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "4.11.4",
+    "@material-ui/core": "^4.12.0",
     "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "4.0.0-alpha.58",
@@ -26,7 +26,7 @@
     "html-to-image": "^1.8.5",
     "jwt-decode": "^3.1.2",
     "query-string": "^7.0.0",
-    "ra-compact-ui": "1.1.1",
+    "ra-compact-ui": "^1.1.1",
     "ra-core": "^3.15.1",
     "ra-data-json-server": "^3.15.1",
     "ra-data-simple-rest": "^3.16.0",
@@ -34,11 +34,11 @@
     "ra-input-rich-text": "^3.14.0",
     "ra-language-english": "^3.15.1",
     "ra-language-french": "^3.15.1",
-    "react": "^17.0.2",
+    "react": "^17.0.0",
     "react-admin": "3.15.1",
     "react-admin-color-input": "^3.0.0-beta.0",
     "react-color": "^2.19.3",
-    "react-dom": "^17.0.2",
+    "react-dom": "^17.0.0",
     "react-dropzone": "^11.3.2",
     "react-email-validator": "^1.0.2",
     "react-file-drop": "^3.1.2",
@@ -55,7 +55,7 @@
     "xlsx": "^0.17.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --expose-gc --max-old-space-size=8192 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

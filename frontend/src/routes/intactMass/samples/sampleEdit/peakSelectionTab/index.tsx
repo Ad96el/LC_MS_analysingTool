@@ -108,11 +108,10 @@ const PeakSelectionTab : React.FC<PeakSelectionTabI> = ({ sid, method }) => {
 
   // effects
   React.useEffect(() => {
-    const index = prepareResult.findIndex((obj) => obj.id === sid);
+    
     setLoading(true);
     dataProvider.getValues(sid as string, 'all').then((response) => {
-      const { tics } = response;
-      const peaks = index > 0 ? prepareResult[index] : response.peaks;
+      const { tics, peaks } = response; 
       setDataChart(tics);
       dispatch(changePeaks(peaks));
       dispatch(changeTics(tics));

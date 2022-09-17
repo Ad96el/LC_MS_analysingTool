@@ -13,5 +13,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies and build 
 COPY . .
 RUN npm install
+RUN npm run build
 RUN npm install -g serve
 #RUN npm run build  

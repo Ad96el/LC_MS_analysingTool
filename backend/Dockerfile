@@ -33,6 +33,7 @@ RUN apt-get update && apt install -y mono-devel nuget
 # install pythonnet
 WORKDIR /pythonnet 
 RUN python setup.py install
+RUN pip install pythonnet
 
 
 WORKDIR /

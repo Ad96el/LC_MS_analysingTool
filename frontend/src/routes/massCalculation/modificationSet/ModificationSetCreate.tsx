@@ -4,7 +4,6 @@ import {
   PaginationPayload, SortPayload, GetListParams, useInput,
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
-import Box from '@mui/material/Box';
 import { ToolBarLight, TransferList, selectedI } from 'components';
 import * as Types from 'types';
 

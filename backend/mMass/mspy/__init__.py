@@ -47,14 +47,12 @@ from .parser_mzdata import parseMZDATA
 from .parser_mzml import parseMZML
 from .parser_mgf import parseMGF
 from .parser_fasta import parseFASTA
-
 import numpy as np 
  
 
 
 def calcualte_window(signal, peaks, threshold=2):
-    x_values = signal[:,0]
-    y_values = signal[:,1]
+    x_values = signal[:,0] 
     result = []
     for i in range(len(peaks)):
         distance = np.abs(x_values - peaks[i])
@@ -62,19 +60,24 @@ def calcualte_window(signal, peaks, threshold=2):
         leftSide = signal[:index]
         rightSide = signal[index:]
         window = []
+        right = False 
+        left = False 
         for point in np.flip(leftSide, 0 ):  
             if(point[1] < threshold):
+                left = True
                 window.append(point[0])
                 break
         for point in rightSide:
             if(point[1] < threshold):
+                right = True
                 window.append(point[0])
                 break 
-        if(len(window) == 1):
+        if(len(window) == 1 and not left):
+            window.append(np.flip(leftSide,0)[len(leftSide) -1 ][0])
+        if(len(window) == 1 and not right):
             window.append(rightSide[len(rightSide) -1 ][0])
         if(len(window) == 0):
-            window.append(leftSide[len(leftSide) -1 ][0])
-            window.append(rightSide[len(rightSide) -1 ][0])
+            window.append([peaks[i]-1, peaks[i]+1]) 
         result.append(window) 
     return result
 
@@ -85,7 +88,7 @@ def detect_peak(signal ,pickingHeight=0.75, absThreshold=0, relThreshold=0, snTh
     first.labelscan(pickingHeight=pickingHeight, absThreshold=absThreshold, relThreshold= relThreshold, snThreshold= snThreshold , baselineWindow=baselineWindow, baselineOffset= baselineOffset, smoothMethod= smoothMethod, smoothWindow=smoothWindow, smoothCycles=smoothCycles)
     peaks = [z.mz for z in first.peaklist] 
     windows = calcualte_window(profile, peaks, absThreshold)
-    return [z.mz for z in first.peaklist], windows
+    return peaks, windows
 
 
  
