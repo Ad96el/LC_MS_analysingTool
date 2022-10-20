@@ -61,5 +61,6 @@ RUN python setup.py install
  
 # for production and UniDec
 RUN pip install waitress h5py
+RUN mkdir /intact_server/static/pdf
 
 WORKDIR /intact_server
